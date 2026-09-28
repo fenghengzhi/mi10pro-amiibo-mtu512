@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "snapshots": [
+    {
+      "device": "cmi",
+      "build": "V816.0.9.0.TJACNXM",
+      "manifest": "cmi/V816.0.9.0.TJACNXM/manifest.json",
+      "patch_supported": true
+    }
+  ]
+}

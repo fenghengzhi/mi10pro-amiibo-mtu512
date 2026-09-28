@@ -1,0 +1,73 @@
+{
+  "device": "cmi",
+  "model": "Mi 10 Pro",
+  "sdk": 33,
+  "android": "13",
+  "fingerprint": "Xiaomi/cmi/cmi:13/TKQ1.221114.001/V816.0.9.0.TJACNXM:user/release-keys",
+  "build": "V816.0.9.0.TJACNXM",
+  "target": "/system_ext/lib64/libbluetooth_qti.so",
+  "original_sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+  "patched_sha256": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2",
+  "size": 6976104,
+  "modified_instructions": 6,
+  "modified_bytes": 6,
+  "patches": [
+    {
+      "file_offset": "0x311660",
+      "virtual_address": "0x311660",
+      "before": "7f040171",
+      "after": "7f040871",
+      "original_instruction": "cmp w3, #65",
+      "patched_instruction": "cmp w3, #513",
+      "reason": "Accept reports through 512 bytes; reject 513 and above."
+    },
+    {
+      "file_offset": "0x31168c",
+      "virtual_address": "0x31168c",
+      "before": "04088052",
+      "after": "04408052",
+      "original_instruction": "mov w4, #64",
+      "patched_instruction": "mov w4, #512",
+      "reason": "Report the actual limit in the diagnostic."
+    },
+    {
+      "file_offset": "0x3116a0",
+      "virtual_address": "0x3116a0",
+      "before": "c0098052",
+      "after": "c0418052",
+      "original_instruction": "mov w0, #78",
+      "patched_instruction": "mov w0, #526",
+      "reason": "Allocate 14-byte report prefix plus 512-byte payload."
+    },
+    {
+      "file_offset": "0x556f84",
+      "virtual_address": "0x556f84",
+      "before": "0a088052",
+      "after": "0a408052",
+      "original_instruction": "mov w10, #64",
+      "patched_instruction": "mov w10, #512",
+      "reason": "Shared immediate initializes both control and interrupt MTUs."
+    },
+    {
+      "file_offset": "0x557668",
+      "virtual_address": "0x557668",
+      "before": "08088052",
+      "after": "08408052",
+      "original_instruction": "mov w8, #64",
+      "patched_instruction": "mov w8, #512",
+      "reason": "Default/cap for peer MTU."
+    },
+    {
+      "file_offset": "0x557674",
+      "virtual_address": "0x557674",
+      "before": "3f010171",
+      "after": "3f010871",
+      "original_instruction": "cmp w9, #64",
+      "patched_instruction": "cmp w9, #512",
+      "reason": "Preserve min(peer MTU, local cap) semantics."
+    }
+  ],
+  "unchanged_elf_layout": true,
+  "device_runtime_tested": false,
+  "switch_amiibo_tested": false
+}

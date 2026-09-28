@@ -1,0 +1,1720 @@
+{
+  "status": "pass",
+  "scope": "AArch64 function behavior using original and patched ELF PT_LOADs/BSS",
+  "instrumentation": {
+    "pac": "Skip only PACIASP/AUTIASP; same instrumentation for both images",
+    "x18": "Shadow call stack is mapped and its instructions execute normally",
+    "stubs": {
+      "1615532": "LogMsg",
+      "1616016": "vnd_LogMsg",
+      "5944500": "osi_malloc",
+      "6615328": "memcpy",
+      "3265416": "bta_sys_sendmsg",
+      "5606468": "L2CA_Register",
+      "5618536": "L2CA_ConfigRsp",
+      "5628748": "L2CA_DataWrite"
+    },
+    "external_behavior": "Logging no-op; bounded poison-filled allocation/copy; message capture; L2CAP success-path capture",
+    "unsupported_behavior": "Any instruction execution outside selected function or enumerated stubs fails the test"
+  },
+  "limitations": [
+    "No Android linker/relocation, SELinux, module mounting or actual Bluetooth execution",
+    "No Switch, real peer negotiation, radio transport or amiibo end-to-end validation",
+    "Only selected success/control paths; L2CAP failure, reconnect, QoS and callbacks are not modeled"
+  ],
+  "variants": [
+    {
+      "label": "original",
+      "sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+      "expected_cap": 64,
+      "report": [
+        {
+          "length": 0,
+          "accepted": true,
+          "allocations": [
+            78
+          ],
+          "external_calls": [
+            "LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "bta_sys_sendmsg"
+          ],
+          "instruction_count_distinct": 42,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x3116f4",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 63,
+          "accepted": true,
+          "allocations": [
+            78
+          ],
+          "external_calls": [
+            "LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "bta_sys_sendmsg"
+          ],
+          "instruction_count_distinct": 42,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x3116f4",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 64,
+          "accepted": true,
+          "allocations": [
+            78
+          ],
+          "external_calls": [
+            "LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "bta_sys_sendmsg"
+          ],
+          "instruction_count_distinct": 42,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x3116f4",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 65,
+          "accepted": false,
+          "allocations": [],
+          "external_calls": [
+            "LogMsg",
+            "LogMsg"
+          ],
+          "instruction_count_distinct": 33,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x311698",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 362,
+          "accepted": false,
+          "allocations": [],
+          "external_calls": [
+            "LogMsg",
+            "LogMsg"
+          ],
+          "instruction_count_distinct": 33,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x311698",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 511,
+          "accepted": false,
+          "allocations": [],
+          "external_calls": [
+            "LogMsg",
+            "LogMsg"
+          ],
+          "instruction_count_distinct": 33,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x311698",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 512,
+          "accepted": false,
+          "allocations": [],
+          "external_calls": [
+            "LogMsg",
+            "LogMsg"
+          ],
+          "instruction_count_distinct": 33,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x311698",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 513,
+          "accepted": false,
+          "allocations": [],
+          "external_calls": [
+            "LogMsg",
+            "LogMsg"
+          ],
+          "instruction_count_distinct": 33,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x311698",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 65535,
+          "accepted": false,
+          "allocations": [],
+          "external_calls": [
+            "LogMsg",
+            "LogMsg"
+          ],
+          "instruction_count_distinct": 33,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x311698",
+              "instruction": "AUTIASP"
+            }
+          ]
+        }
+      ],
+      "registration": {
+        "control_mtu": 64,
+        "interrupt_mtu": 64,
+        "allocations": [],
+        "external_calls": [
+          "vnd_LogMsg",
+          "L2CA_Register",
+          "L2CA_Register"
+        ],
+        "instruction_count_distinct": 59,
+        "pac_instrumentation": [
+          {
+            "address": "0x556f28",
+            "instruction": "PACIASP"
+          },
+          {
+            "address": "0x55706c",
+            "instruction": "AUTIASP"
+          }
+        ]
+      },
+      "configuration": [
+        {
+          "peer_mtu": 0,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 0,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 48,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 48,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 64,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 362,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 511,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 512,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 513,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65535,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 0,
+          "present": false,
+          "cid": 112,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 62,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65535,
+          "present": false,
+          "cid": 112,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 62,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 0,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 0,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 48,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 48,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 64,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 362,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 511,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 512,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 513,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65535,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 0,
+          "present": false,
+          "cid": 113,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 64,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65535,
+          "present": false,
+          "cid": 113,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 64,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 362,
+          "present": true,
+          "cid": 153,
+          "saved_mtu": null,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "vnd_LogMsg"
+          ],
+          "instruction_count_distinct": 44,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x55775c",
+              "instruction": "AUTIASP"
+            }
+          ]
+        }
+      ],
+      "downstream": [
+        {
+          "channel": 1,
+          "report_id": 49,
+          "payload_length": 362,
+          "wire_length": 364,
+          "allocations": [
+            4112
+          ],
+          "external_calls": [
+            "vnd_LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "vnd_LogMsg",
+            "L2CA_DataWrite"
+          ],
+          "instruction_count_distinct": 102,
+          "pac_instrumentation": [
+            {
+              "address": "0x55872c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x558930",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "channel": 2,
+          "report_id": 49,
+          "payload_length": 362,
+          "wire_length": 364,
+          "allocations": [
+            4112
+          ],
+          "external_calls": [
+            "vnd_LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "vnd_LogMsg",
+            "L2CA_DataWrite"
+          ],
+          "instruction_count_distinct": 102,
+          "pac_instrumentation": [
+            {
+              "address": "0x55872c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x558930",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "channel": 2,
+          "report_id": 0,
+          "payload_length": 362,
+          "wire_length": 363,
+          "allocations": [
+            4112
+          ],
+          "external_calls": [
+            "vnd_LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "vnd_LogMsg",
+            "L2CA_DataWrite"
+          ],
+          "instruction_count_distinct": 98,
+          "pac_instrumentation": [
+            {
+              "address": "0x55872c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x558930",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "channel": 2,
+          "report_id": 49,
+          "payload_length": 512,
+          "wire_length": 514,
+          "allocations": [
+            4112
+          ],
+          "external_calls": [
+            "vnd_LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "vnd_LogMsg",
+            "L2CA_DataWrite"
+          ],
+          "instruction_count_distinct": 102,
+          "pac_instrumentation": [
+            {
+              "address": "0x55872c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x558930",
+              "instruction": "AUTIASP"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "patched",
+      "sha256": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2",
+      "expected_cap": 512,
+      "report": [
+        {
+          "length": 0,
+          "accepted": true,
+          "allocations": [
+            526
+          ],
+          "external_calls": [
+            "LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "bta_sys_sendmsg"
+          ],
+          "instruction_count_distinct": 42,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x3116f4",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 63,
+          "accepted": true,
+          "allocations": [
+            526
+          ],
+          "external_calls": [
+            "LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "bta_sys_sendmsg"
+          ],
+          "instruction_count_distinct": 42,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x3116f4",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 64,
+          "accepted": true,
+          "allocations": [
+            526
+          ],
+          "external_calls": [
+            "LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "bta_sys_sendmsg"
+          ],
+          "instruction_count_distinct": 42,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x3116f4",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 65,
+          "accepted": true,
+          "allocations": [
+            526
+          ],
+          "external_calls": [
+            "LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "bta_sys_sendmsg"
+          ],
+          "instruction_count_distinct": 42,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x3116f4",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 362,
+          "accepted": true,
+          "allocations": [
+            526
+          ],
+          "external_calls": [
+            "LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "bta_sys_sendmsg"
+          ],
+          "instruction_count_distinct": 42,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x3116f4",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 511,
+          "accepted": true,
+          "allocations": [
+            526
+          ],
+          "external_calls": [
+            "LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "bta_sys_sendmsg"
+          ],
+          "instruction_count_distinct": 42,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x3116f4",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 512,
+          "accepted": true,
+          "allocations": [
+            526
+          ],
+          "external_calls": [
+            "LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "bta_sys_sendmsg"
+          ],
+          "instruction_count_distinct": 42,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x3116f4",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 513,
+          "accepted": false,
+          "allocations": [],
+          "external_calls": [
+            "LogMsg",
+            "LogMsg"
+          ],
+          "instruction_count_distinct": 33,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x311698",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "length": 65535,
+          "accepted": false,
+          "allocations": [],
+          "external_calls": [
+            "LogMsg",
+            "LogMsg"
+          ],
+          "instruction_count_distinct": 33,
+          "pac_instrumentation": [
+            {
+              "address": "0x31161c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x311698",
+              "instruction": "AUTIASP"
+            }
+          ]
+        }
+      ],
+      "registration": {
+        "control_mtu": 512,
+        "interrupt_mtu": 512,
+        "allocations": [],
+        "external_calls": [
+          "vnd_LogMsg",
+          "L2CA_Register",
+          "L2CA_Register"
+        ],
+        "instruction_count_distinct": 59,
+        "pac_instrumentation": [
+          {
+            "address": "0x556f28",
+            "instruction": "PACIASP"
+          },
+          {
+            "address": "0x55706c",
+            "instruction": "AUTIASP"
+          }
+        ]
+      },
+      "configuration": [
+        {
+          "peer_mtu": 0,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 0,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 48,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 48,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 64,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 65,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 362,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 362,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 511,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 511,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 512,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 512,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 513,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 512,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65535,
+          "present": true,
+          "cid": 112,
+          "saved_mtu": 512,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 65,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 0,
+          "present": false,
+          "cid": 112,
+          "saved_mtu": 512,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 62,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65535,
+          "present": false,
+          "cid": 112,
+          "saved_mtu": 512,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 62,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 0,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 0,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 48,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 48,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 64,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 64,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 65,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 362,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 362,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 511,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 511,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 512,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 512,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 513,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 512,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65535,
+          "present": true,
+          "cid": 113,
+          "saved_mtu": 512,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 67,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 0,
+          "present": false,
+          "cid": 113,
+          "saved_mtu": 512,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 64,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 65535,
+          "present": false,
+          "cid": 113,
+          "saved_mtu": 512,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "L2CA_ConfigRsp"
+          ],
+          "instruction_count_distinct": 64,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x5577f0",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "peer_mtu": 362,
+          "present": true,
+          "cid": 153,
+          "saved_mtu": null,
+          "allocations": [],
+          "external_calls": [
+            "vnd_LogMsg",
+            "vnd_LogMsg"
+          ],
+          "instruction_count_distinct": 44,
+          "pac_instrumentation": [
+            {
+              "address": "0x5575ac",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x55775c",
+              "instruction": "AUTIASP"
+            }
+          ]
+        }
+      ],
+      "downstream": [
+        {
+          "channel": 1,
+          "report_id": 49,
+          "payload_length": 362,
+          "wire_length": 364,
+          "allocations": [
+            4112
+          ],
+          "external_calls": [
+            "vnd_LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "vnd_LogMsg",
+            "L2CA_DataWrite"
+          ],
+          "instruction_count_distinct": 102,
+          "pac_instrumentation": [
+            {
+              "address": "0x55872c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x558930",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "channel": 2,
+          "report_id": 49,
+          "payload_length": 362,
+          "wire_length": 364,
+          "allocations": [
+            4112
+          ],
+          "external_calls": [
+            "vnd_LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "vnd_LogMsg",
+            "L2CA_DataWrite"
+          ],
+          "instruction_count_distinct": 102,
+          "pac_instrumentation": [
+            {
+              "address": "0x55872c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x558930",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "channel": 2,
+          "report_id": 0,
+          "payload_length": 362,
+          "wire_length": 363,
+          "allocations": [
+            4112
+          ],
+          "external_calls": [
+            "vnd_LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "vnd_LogMsg",
+            "L2CA_DataWrite"
+          ],
+          "instruction_count_distinct": 98,
+          "pac_instrumentation": [
+            {
+              "address": "0x55872c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x558930",
+              "instruction": "AUTIASP"
+            }
+          ]
+        },
+        {
+          "channel": 2,
+          "report_id": 49,
+          "payload_length": 512,
+          "wire_length": 514,
+          "allocations": [
+            4112
+          ],
+          "external_calls": [
+            "vnd_LogMsg",
+            "osi_malloc",
+            "memcpy",
+            "vnd_LogMsg",
+            "L2CA_DataWrite"
+          ],
+          "instruction_count_distinct": 102,
+          "pac_instrumentation": [
+            {
+              "address": "0x55872c",
+              "instruction": "PACIASP"
+            },
+            {
+              "address": "0x558930",
+              "instruction": "AUTIASP"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "test_cases": 74
+}

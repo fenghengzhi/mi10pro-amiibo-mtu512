@@ -1,0 +1,2 @@
+PASS: actual-device stock compatibility guard
+PASS: running-device late activation rejected: boot already completed; hot replacement is forbidden

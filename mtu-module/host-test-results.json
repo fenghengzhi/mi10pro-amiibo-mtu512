@@ -1,0 +1,66 @@
+{
+  "scope": "Host fixtures only; no real mounts or phone writes",
+  "all_passed": true,
+  "guard_cases": 19,
+  "builder_cases": 11,
+  "results": [
+    {
+      "command": [
+        "sh",
+        "work/mtu-module/tests/test_guard.sh"
+      ],
+      "returncode": 0,
+      "stdout": "PASS refused wrong device\nPASS refused wrong SDK\nPASS refused changed Magisk lifecycle\nPASS refused OTA fingerprint change\nPASS refused stock hash mismatch\nPASS refused reinstall over mounted patch\nPASS refused payload corruption\nPASS refused missing payload\nPASS refused unreviewed placeholder\nPASS refused SELinux context mismatch\nPASS refused completed boot\nPASS refused already-running zygote\nPASS refused existing target bind mount\nPASS refused mount state inspection error\nPASS refused missing permanent skip_mount\nPASS refused unexpected automatic mount tree\nPASS bind failure disables module\nPASS remount failure rolls back\nPASS exact match mounts only reviewed payload\nAll host guard tests passed. No Android device or real mount was used.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "work/mtu-module/tests/test_builder.py"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_exact_reviewed_fixture (__main__.BuilderTests) ... ok\ntest_refuse_changed_firmware (__main__.BuilderTests) ... ok\ntest_refuse_missing_attestation (__main__.BuilderTests) ... ok\ntest_refuse_missing_payload_cli (__main__.BuilderTests) ... ok\ntest_refuse_overlapping_patches (__main__.BuilderTests) ... ok\ntest_refuse_resize (__main__.BuilderTests) ... ok\ntest_refuse_stock_hash (__main__.BuilderTests) ... ok\ntest_refuse_unaligned_offset (__main__.BuilderTests) ... ok\ntest_refuse_unreviewed_byte (__main__.BuilderTests) ... ok\ntest_refuse_wrong_before (__main__.BuilderTests) ... ok\ntest_refuse_wrong_payload_digest (__main__.BuilderTests) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.079s\n\nOK\n"
+    },
+    {
+      "command": [
+        "sh",
+        "-n",
+        "work/mtu-module/template/customize.sh"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sh",
+        "-n",
+        "work/mtu-module/template/guard.sh"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sh",
+        "-n",
+        "work/mtu-module/template/post-fs-data.sh"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sh",
+        "-n",
+        "work/mtu-module/template/uninstall.sh"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ]
+}

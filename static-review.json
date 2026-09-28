@@ -1,0 +1,49 @@
+{
+  "status": "STATIC_REVIEWED_NOT_DEVICE_TESTED",
+  "firmware_fingerprint": "Xiaomi/cmi/cmi:13/TKQ1.221114.001/V816.0.9.0.TJACNXM:user/release-keys",
+  "stock_sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+  "patched_sha256": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2",
+  "review_summary": "Exact pulled library independently reviewed through HID Device send path, callers, consumers, CFI thunks, ordinary memcpy and 4112-byte downstream allocation. Six instructions change report cap, allocation, diagnostics, both advertised MTUs, and peer cap. 74 Unicorn ARM64 behavioral cases and exact ELF/instruction/input-rejection checks passed. Phone stock preflight passed read-only. Android runtime, mount activation and Switch/amiibo not tested.",
+  "patches": [
+    {
+      "offset": 3216992,
+      "before_hex": "7f040171",
+      "after_hex": "7f040871",
+      "rationale": "Accept reports through 512 bytes; reject 513 and above."
+    },
+    {
+      "offset": 3217036,
+      "before_hex": "04088052",
+      "after_hex": "04408052",
+      "rationale": "Report the actual limit in the diagnostic."
+    },
+    {
+      "offset": 3217056,
+      "before_hex": "c0098052",
+      "after_hex": "c0418052",
+      "rationale": "Allocate 14-byte report prefix plus 512-byte payload."
+    },
+    {
+      "offset": 5599108,
+      "before_hex": "0a088052",
+      "after_hex": "0a408052",
+      "rationale": "Shared immediate initializes both control and interrupt MTUs."
+    },
+    {
+      "offset": 5600872,
+      "before_hex": "08088052",
+      "after_hex": "08408052",
+      "rationale": "Default/cap for peer MTU."
+    },
+    {
+      "offset": 5600884,
+      "before_hex": "3f010171",
+      "after_hex": "3f010871",
+      "rationale": "Preserve min(peer MTU, local cap) semantics."
+    }
+  ],
+  "behavioral_test_cases": 74,
+  "device_preflight": "stock compatibility and late activation refusal passed; no mount or install performed",
+  "runtime_tested": false,
+  "switch_amiibo_tested": false
+}

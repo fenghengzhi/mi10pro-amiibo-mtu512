@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "instruction_count": 6,
+  "checks": [
+    {
+      "address": "0x311660",
+      "before": "cmp w3, #0x41",
+      "after": "cmp w3, #0x201"
+    },
+    {
+      "address": "0x31168c",
+      "before": "mov w4, #0x40",
+      "after": "mov w4, #0x200"
+    },
+    {
+      "address": "0x3116a0",
+      "before": "mov w0, #0x4e",
+      "after": "mov w0, #0x20e"
+    },
+    {
+      "address": "0x556f84",
+      "before": "mov w10, #0x40",
+      "after": "mov w10, #0x200"
+    },
+    {
+      "address": "0x557668",
+      "before": "mov w8, #0x40",
+      "after": "mov w8, #0x200"
+    },
+    {
+      "address": "0x557674",
+      "before": "cmp w9, #0x40",
+      "after": "cmp w9, #0x200"
+    }
+  ],
+  "elf_headers_segments_and_section_layout_unchanged": true,
+  "matches_independent_clang_assembly": true,
+  "input_guard_rejections": [
+    "already_patched",
+    "truncated",
+    "unrelated_build",
+    "wrong_instruction"
+  ],
+  "original_sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+  "patched_sha256": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2"
+}

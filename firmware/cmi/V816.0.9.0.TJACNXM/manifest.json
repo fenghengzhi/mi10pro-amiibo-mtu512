@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "device": "cmi",
+  "model": "Mi 10 Pro",
+  "build": "V816.0.9.0.TJACNXM",
+  "android_release": "13",
+  "android_sdk": 33,
+  "security_patch": "2024-03-01",
+  "fingerprint": "Xiaomi/cmi/cmi:13/TKQ1.221114.001/V816.0.9.0.TJACNXM:user/release-keys",
+  "captured_on": "2026-09-28",
+  "capture_method": "adb pull from connected device; paths confirmed in Bluetooth process maps",
+  "original_files_unmodified": true,
+  "files": [
+    {
+      "device_path": "/system_ext/lib64/libbluetooth_qti.so",
+      "path": "system_ext/lib64/libbluetooth_qti.so",
+      "size": 6976104,
+      "sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+      "role": "active Bluetooth stack; patch target"
+    },
+    {
+      "device_path": "/system/lib64/libbluetooth_qti_jni.so",
+      "path": "system/lib64/libbluetooth_qti_jni.so",
+      "size": 473504,
+      "sha256": "d56eb041bc91e6ae31348576519191e4f32176c1b55a7ff99159bbd1dbfe9207",
+      "role": "active JNI wrapper; unmodified comparison baseline"
+    }
+  ]
+}
