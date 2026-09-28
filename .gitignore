@@ -3,6 +3,8 @@
 /patched/
 /dist/
 /patch-instructions.o
+/release-notes.md
+/release-title.txt
 __pycache__/
 *.pyc
 .DS_Store

@@ -1,0 +1,78 @@
+name: Build and release Magisk module
+run-name: 'Magisk build #${{ github.run_number }} · ${{ github.sha }}'
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Serialize publication without replacing the usual single pending run.
+# GitHub's maximum queue holds 100 pending runs; published releases never expire.
+concurrency:
+  group: magisk-build-release
+  queue: max
+
+permissions:
+  contents: read
+
+jobs:
+  build-release:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the exact source commit
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install build and verification tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes --no-install-recommends clang
+          python -m pip install --requirement requirements.txt
+
+      - name: Patch the archived stock library and verify the binary
+        run: |
+          mkdir -p device
+          cp firmware/cmi/V816.0.9.0.TJACNXM/system_ext/lib64/libbluetooth_qti.so device/libbluetooth_qti.so
+          python patch_mtu.py device/libbluetooth_qti.so patched/libbluetooth_qti.so --manifest patch-manifest.json
+          clang -target aarch64-linux-android33 -c patch-instructions.s -o patch-instructions.o
+          python verify_patch.py
+          python test_mtu_binary.py
+
+      - name: Test module guards, packaging and verification tools
+        run: |
+          sh mtu-module/tests/test_guard.sh
+          python mtu-module/tests/test_builder.py
+          python test_runtime_verifier.py
+          python -m unittest discover -s ci -p 'test_*.py' -v
+          for script in mtu-module/template/*.sh; do sh -n "$script"; done
+
+      - name: Build the installable Magisk ZIP
+        run: |
+          version_code="$(sed -n 's/^versionCode=//p' mtu-module/template/module.prop)"
+          python mtu-module/build.py --stock device/libbluetooth_qti.so --patched patched/libbluetooth_qti.so --review static-review.json --output "dist/cmi-hid-mtu512-V816.0.9.0-v${version_code}.zip"
+          python ci/release.py prepare
+
+      - name: Save a copy with the workflow run
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: magisk-${{ github.run_id }}-${{ github.run_attempt }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 0
+
+      - name: Publish a new release with all assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python ci/release.py publish

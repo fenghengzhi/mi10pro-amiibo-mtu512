@@ -4,6 +4,14 @@
 
 **v2 修复了原版挂载在蓝牙进程中不可见的问题。已在当前手机观察到六处补丁指令及两个 HID 通道 MTU=512；Switch 配对和游戏内 amiibo 仍需端到端测试。** 具体证据和开机验证结果见[验证报告](VALIDATION.zh-CN.md)。
 
+## 下载安装包
+
+[最新构建](https://github.com/fenghengzhi/mi10pro-amiibo-mtu512/releases/latest) · [全部构建记录（从新到旧）](https://github.com/fenghengzhi/mi10pro-amiibo-mtu512/releases) · [GitHub Actions](https://github.com/fenghengzhi/mi10pro-amiibo-mtu512/actions/workflows/build-release.yml)
+
+下载 Release 的 Assets 中 `cmi-hid-mtu512-…-v2.zip` 安装包；旁边提供 `SHA256SUMS.txt` 和 `build-info.json`。GitHub 自动生成的 **Source code ZIP 不能作为 Magisk 模块安装**。
+
+每次推送到 `main` 或手动运行 Actions，都经过测试后创建独立 Release。发布记录带 UTC 时间、运行 ID 和重试次数，按从新到旧展示，旧包不覆盖、不自动删除。CI 测试通过不等于该次构建已经完成新的手机或 Switch 实测。
+
 ## 当前支持
 
 | 项目 | 目标 |

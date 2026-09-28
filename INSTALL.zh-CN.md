@@ -40,7 +40,7 @@ a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2
 
 ## 安装
 
-1. 按 `BUILD.md` 构建，将生成的 `dist/cmi-hid-mtu512-V816.0.9.0-v2.zip` 复制到手机。
+1. 从 [Releases](https://github.com/fenghengzhi/mi10pro-amiibo-mtu512/releases) 下载最新记录中 Assets 下的 Magisk ZIP，并用同页 `SHA256SUMS.txt` 校验；也可按 `BUILD.md` 自行构建。不要安装 GitHub 自动生成的 Source code ZIP。
 2. 打开 Magisk → 模块 → 从本地安装，选择该 ZIP。
 3. 安装成功后重启手机。
 4. 确认蓝牙正常开启，再按 JoyCon Droid 的要求配置配对和测试 amiibo。
