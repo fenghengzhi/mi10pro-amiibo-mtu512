@@ -1,0 +1,13 @@
+{
+  "full_reboot_observed": true,
+  "boot_completed": true,
+  "bluetooth_pid": 12085,
+  "bluetooth_state": "state: ON",
+  "module_status": "MOUNTED: verified private tmpfs copy, read-only executable bind and exact firmware; Bluetooth/amiibo runtime behavior unverified",
+  "module_guard_sha256": "c635921a71a90d7ee1b171aad76df1fa520c5f595b5152a4520066b6a8f9be6e",
+  "shamiko_whitelist_still_enabled": true,
+  "bluetooth_uid_root_policy": "",
+  "companion_jni_shim_and_original_mapped": "6fa1cc0000-6fa1cdc000 r--p 00000000 00:11 35790                          /system/lib64/libbluetooth_qti_jni_orig.so\n6fa1cdc000-6fa1d2c000 r-xp 0001c000 00:11 35790                          /system/lib64/libbluetooth_qti_jni_orig.so\n6fa1d2c000-6fa1d2d000 r--p 0006c000 00:11 35790                          /system/lib64/libbluetooth_qti_jni_orig.so\n6fa1d2d000-6fa1d31000 rw-p 0006c000 00:11 35790                          /system/lib64/libbluetooth_qti_jni_orig.so\n6fa6a55000-6fa6a58000 r--p 00000000 00:11 36264                          /system/lib64/libbluetooth_qti_jni.so\n6fa6a58000-6fa6a5b000 r-xp 00002000 00:11 36264                          /system/lib64/libbluetooth_qti_jni.so\n6fa6a5b000-6fa6a5c000 r--p 00004000 00:11 36264                          /system/lib64/libbluetooth_qti_jni.so\n6fa6a5c000-6fa6a5d000 rw-p 00004000 00:11 36264                          /system/lib64/libbluetooth_qti_jni.so",
+  "init_target_and_ancestor_mounts": "40 39 252:6 / / ro,relatime shared:1 - ext4 /dev/block/dm-6 ro,seclabel,discard\n51 40 252:7 / /system_ext ro,relatime shared:10 - ext4 /dev/block/dm-7 ro,seclabel,discard\n38 51 0:17 /cmi_hid_mtu512/libbluetooth_qti.so /system_ext/lib64/libbluetooth_qti.so ro,nosuid,nodev,relatime shared:2 - tmpfs tmpfs rw,seclabel,size=5919716k,nr_inodes=1479929,mode=755",
+  "bluetooth_target_and_ancestor_mounts": "45158 45157 252:6 / / ro,relatime master:1 - ext4 /dev/block/dm-6 ro,seclabel,discard\n45224 45158 252:7 / /system_ext ro,relatime master:10 - ext4 /dev/block/dm-7 ro,seclabel,discard\n45225 45224 0:17 /cmi_hid_mtu512/libbluetooth_qti.so /system_ext/lib64/libbluetooth_qti.so ro,nosuid,nodev,relatime master:2 - tmpfs tmpfs rw,seclabel,size=5919716k,nr_inodes=1479929,mode=755"
+}

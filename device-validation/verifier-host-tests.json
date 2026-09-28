@@ -1,0 +1,5 @@
+{
+  "cases": 9,
+  "returncode": 0,
+  "output": "test_adb_failure_does_not_leak_identifiers_or_raw_output (__main__.RuntimeVerifierTests) ... ok\ntest_adb_timeout_does_not_leak_command (__main__.RuntimeVerifierTests) ... ok\ntest_another_mapping_or_duplicate_base_is_rejected (__main__.RuntimeVerifierTests) ... ok\ntest_loaded_instructions_and_executed_initialization (__main__.RuntimeVerifierTests) ... ok\ntest_partial_initialization_cannot_pass (__main__.RuntimeVerifierTests) ... ok\ntest_patched_path_with_old_memory_is_not_a_pass (__main__.RuntimeVerifierTests) ... ok\ntest_process_restart_rejects_mixed_snapshot (__main__.RuntimeVerifierTests) ... ok\ntest_uninitialized_hid_is_pending_not_load_failure (__main__.RuntimeVerifierTests) ... ok\ntest_wrong_firmware_prevents_fixed_address_reads (__main__.RuntimeVerifierTests) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.004s\n\nOK\n"
+}

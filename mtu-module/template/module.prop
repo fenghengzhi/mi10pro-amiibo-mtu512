@@ -1,6 +1,6 @@
 id=cmi_qti_hid_mtu512
 name=Mi 10 Pro QTI HID MTU 512 (exact firmware)
-version=1.0-experimental
-versionCode=1
+version=1.1-experimental
+versionCode=2
 author=Local device-specific build
-description=Experimental, exact-hash Bluetooth HID MTU patch for cmi V816.0.9.0.TJACNXM only. Static review; device validation required.
+description=Exact-hash HID MTU 512 patch for cmi V816.0.9.0.TJACNXM. Independent tmpfs staging fixes hidden module mounts. Switch/amiibo validation still required.

@@ -1,0 +1,38 @@
+{
+  "bluetooth_pid": "5614",
+  "module_status": "MOUNTED: exact firmware, stock SHA256 and payload SHA256 verified; Bluetooth/amiibo runtime behavior unverified",
+  "root_view_sha256": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2",
+  "process_view_sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+  "instructions": [
+    {
+      "offset": "0x311660",
+      "bytes": "7f040171",
+      "state": "stock"
+    },
+    {
+      "offset": "0x31168c",
+      "bytes": "04088052",
+      "state": "stock"
+    },
+    {
+      "offset": "0x3116a0",
+      "bytes": "c0098052",
+      "state": "stock"
+    },
+    {
+      "offset": "0x556f84",
+      "bytes": "0a088052",
+      "state": "stock"
+    },
+    {
+      "offset": "0x557668",
+      "bytes": "08088052",
+      "state": "stock"
+    },
+    {
+      "offset": "0x557674",
+      "bytes": "3f010171",
+      "state": "stock"
+    }
+  ]
+}

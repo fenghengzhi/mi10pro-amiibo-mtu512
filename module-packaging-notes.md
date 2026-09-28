@@ -1,5 +1,17 @@
 # Packaging decision and verification
 
+## v2 device-tested loading fix (2026-09-28)
+
+The original direct bind from the module payload was visible to init/Zygote but stripped from the Bluetooth app's namespace in the current Shamiko whitelist setup. Its status text was therefore insufficient evidence. The same six-instruction payload now gets copied to a fresh root-private `/dev/cmi_hid_mtu512` tmpfs directory before binding. This is a new inode, not a link or another bind to the module file. No root grants, hiding settings, or SELinux policies are changed.
+
+The guard rejects a pre-existing staging path, missing tmpfs parent, conflicting target/recognized module-backed ancestors, copy/metadata/hash/context failures, and late execution (checked both before and after copying). It uses BusyBox remount with explicit source and target, then checks a single expected tmpfs source, hash/context, and ro/exec/nosuid/nodev flags. Failure removes only the stage it created; rollback failure retains the mapped file and records reboot required. `/dev` and its bind disappear on reboot.
+
+Android Toybox's single-argument remount was unsuitable in the controlled experiment; the module runs in Magisk BusyBox's standalone shell. The trial was corrected to use that same BusyBox implementation. Mount propagation does not imply propagation of later remount flags between already-created namespaces; the final full-boot test verified the Bluetooth namespace inherited the read-only mount.
+
+37 guard cases, 11 builder cases and 9 runtime-verifier cases pass. A complete phone reboot confirmed six patched instructions in Bluetooth process memory, both initialized HID MTUs at 512, a read-only tmpfs mount, and coexistence with the Companion JNI shim. See [current device report](VALIDATION.zh-CN.md). Switch/amiibo remain untested. Other modules' later magic mounts can still alter paths after the guard's collision snapshot.
+
+The sections below document the original packaging analysis. Counts and untested-device statements in that historical analysis are superseded by this v2 section and the current device report. The static-review JSON remains an attestation of the binary analysis at its original point in time.
+
 The scaffold is in `mtu-module/template/`. It deliberately contains no payload and no `system/` tree. `skip_mount` is permanent. The only operation that activates the patch is an explicit file bind mount inside `post-fs-data.sh`, after all compatibility checks pass. Firmware partitions are never written. Disable/remove in Magisk and reboot removes the effect. `uninstall.sh` deliberately does not hot-unmount a potentially mapped Bluetooth library.
 
 This is stronger than removing `skip_mount` on successful boots: a removed flag would remain removed if a later boot skipped/crashed/timed out before the guard. Here even a missing or skipped script leaves no automatically mounted replacement.

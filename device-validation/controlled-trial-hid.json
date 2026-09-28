@@ -1,0 +1,45 @@
+{
+  "pid": 32188,
+  "root_sha": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2",
+  "process_sha": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2",
+  "instructions": {
+    "0x311660": {
+      "expected": "7f040871",
+      "actual": "7f040871",
+      "pass": true
+    },
+    "0x31168c": {
+      "expected": "04408052",
+      "actual": "04408052",
+      "pass": true
+    },
+    "0x3116a0": {
+      "expected": "c0418052",
+      "actual": "c0418052",
+      "pass": true
+    },
+    "0x556f84": {
+      "expected": "0a408052",
+      "actual": "0a408052",
+      "pass": true
+    },
+    "0x557668": {
+      "expected": "08408052",
+      "actual": "08408052",
+      "pass": true
+    },
+    "0x557674": {
+      "expected": "3f010871",
+      "actual": "3f010871",
+      "pass": true
+    }
+  },
+  "hid_globals": {
+    "0x6c5e62": 1,
+    "0x6c5e64": 512,
+    "0x6c5eaa": 1,
+    "0x6c5eac": 512
+  },
+  "state": "state: ON",
+  "scope": "Controlled Bluetooth-process restart with temporary independent tmpfs copy, followed by JoyCon Droid HID initialization; precedes final module installation and full reboot."
+}

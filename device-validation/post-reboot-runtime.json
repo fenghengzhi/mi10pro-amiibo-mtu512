@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "timestamp_utc": "2026-09-28T15:33:10.616776+00:00",
+  "scope": "Read-only check of this firmware's loaded instructions and HID configuration.",
+  "limitations": [
+    "No long HID report transmission is tested.",
+    "No Switch pairing or amiibo functionality is tested.",
+    "A single snapshot does not establish reboot persistence or ongoing Bluetooth health."
+  ],
+  "compatibility": {
+    "status": "PASS",
+    "expected_fingerprint": "Xiaomi/cmi/cmi:13/TKQ1.221114.001/V816.0.9.0.TJACNXM:user/release-keys",
+    "fingerprint_matches": true,
+    "device_matches_cmi": true,
+    "sdk_matches_33": true,
+    "expected_magisk_version_code": "30700",
+    "magisk_version_matches": true
+  },
+  "process": {
+    "pid": 12085,
+    "starttime_ticks": 5063,
+    "library_base": "0x6f9be0e000",
+    "target_mappings": [
+      {
+        "start": "0x6f9be0e000",
+        "end": "0x6f9bf88000",
+        "permissions": "r--p",
+        "file_offset": "0x0",
+        "device": "00:11",
+        "inode": 35435
+      },
+      {
+        "start": "0x6f9bf88000",
+        "end": "0x6f9c35f000",
+        "permissions": "r-xp",
+        "file_offset": "0x17a000",
+        "device": "00:11",
+        "inode": 35435
+      },
+      {
+        "start": "0x6f9c35f000",
+        "end": "0x6f9c360000",
+        "permissions": "rwxp",
+        "file_offset": "0x551000",
+        "device": "00:11",
+        "inode": 35435
+      },
+      {
+        "start": "0x6f9c360000",
+        "end": "0x6f9c45e000",
+        "permissions": "r-xp",
+        "file_offset": "0x552000",
+        "device": "00:11",
+        "inode": 35435
+      },
+      {
+        "start": "0x6f9c45e000",
+        "end": "0x6f9c46c000",
+        "permissions": "r--p",
+        "file_offset": "0x650000",
+        "device": "00:11",
+        "inode": 35435
+      },
+      {
+        "start": "0x6f9c46c000",
+        "end": "0x6f9c470000",
+        "permissions": "rw-p",
+        "file_offset": "0x65d000",
+        "device": "00:11",
+        "inode": 35435
+      }
+    ]
+  },
+  "library_path_hashes": {
+    "expected_sha256": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2",
+    "root_namespace_sha256": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2",
+    "process_namespace_sha256": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2",
+    "limitation": "Path hashes are corroborating evidence; loaded instructions are read separately."
+  },
+  "instructions": [
+    {
+      "virtual_offset": "0x311660",
+      "expected": "7f040871",
+      "actual": "7f040871",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x31168c",
+      "expected": "04408052",
+      "actual": "04408052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x3116a0",
+      "expected": "c0418052",
+      "actual": "c0418052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x556f84",
+      "expected": "0a408052",
+      "actual": "0a408052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x557668",
+      "expected": "08408052",
+      "actual": "08408052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x557674",
+      "expected": "3f010871",
+      "actual": "3f010871",
+      "status": "PASS"
+    }
+  ],
+  "hid_initialization": {
+    "status": "PASS",
+    "channels": {
+      "control": {
+        "presence": 1,
+        "mtu": 512
+      },
+      "interrupt": {
+        "presence": 1,
+        "mtu": 512
+      }
+    },
+    "detail": "Both HID channel configuration MTUs were initialized to 512 in this process.",
+    "limitation": "Initialized values can remain after app unregistration; this does not prove a current registration or a peer connection."
+  },
+  "target_mount_origins": [
+    {
+      "root": "/cmi_hid_mtu512/libbluetooth_qti.so",
+      "mountpoint": "/system_ext/lib64/libbluetooth_qti.so",
+      "options": [
+        "ro",
+        "nosuid",
+        "nodev",
+        "relatime"
+      ],
+      "filesystem": "tmpfs",
+      "source": "tmpfs"
+    }
+  ],
+  "stable_process_snapshot": true,
+  "loaded_patch_status": "PASS",
+  "status": "LOADED_AND_HID_INITIALIZED_512"
+}

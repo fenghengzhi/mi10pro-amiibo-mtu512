@@ -11,5 +11,6 @@ set_perm "$MODPATH/payload/libbluetooth_qti.so" 0 0 0644 "$MTU_CONTEXT"
 mtu_preflight "$MTU_TARGET" "$MODPATH/payload/libbluetooth_qti.so" || abort "! Refusing installation: $MTU_REASON"
 set_perm "$MODPATH/post-fs-data.sh" 0 0 0755
 ui_print '- Exact device, firmware, library hash and SELinux context verified.'
-ui_print '- Experimental static-reviewed patch; Bluetooth/amiibo testing is still required.'
+ui_print '- Independent tmpfs staging; root-hiding settings are not changed.'
+ui_print '- Experimental patch; Switch/amiibo testing is still required.'
 ui_print '- Reboot to activate. Disable/remove in Magisk, then reboot to restore stock.'
