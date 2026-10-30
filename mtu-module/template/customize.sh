@@ -2,9 +2,9 @@
 [ "$BOOTMODE" = true ] || abort '! Install from the Magisk app while Android is running.'
 [ "$ARCH" = arm64 ] || abort '! This module supports arm64 only.'
 [ "$API" = 33 ] || abort '! This module supports Android SDK 33 only.'
-[ "$MAGISK_VER_CODE" = 30700 ] || abort '! This exact-device build requires Magisk 30.7 (30700).'
 . "$MODPATH/target.conf" || abort '! Cannot read the verified target manifest.'
 . "$MODPATH/guard.sh" || abort '! Cannot load the compatibility guard.'
+mtu_magisk_preflight "${MAGISK_VER_CODE-}" || abort "! Refusing installation: $MTU_REASON"
 [ -f "$MODPATH/skip_mount" ] || abort '! Required skip_mount flag is missing.'
 [ ! -e "$MODPATH/system" ] || abort '! Unexpected automatic-mount payload tree.'
 set_perm "$MODPATH/payload/libbluetooth_qti.so" 0 0 0644 "$MTU_CONTEXT"

@@ -15,12 +15,15 @@ MOUNTS = f"100 90 0:17 /cmi_hid_mtu512/libbluetooth_qti.so {runtime.TARGET} ro,n
 
 
 class FakeAdb(runtime.Adb):
-    def __init__(self, initialized=True, stock_code=False, restart=False, compatible=True):
+    def __init__(self, initialized=True, stock_code=False, restart=False, compatible=True,
+                 magisk="30700", process_hash=runtime.PATCHED_SHA256):
         self.commands = []
         self.initialized = initialized
         self.stock_code = stock_code
         self.restart = restart
         self.compatible = compatible
+        self.magisk = magisk
+        self.process_hash = process_hash
         self.pid_calls = 0
 
     def root_bytes(self, command, label):
@@ -28,7 +31,7 @@ class FakeAdb(runtime.Adb):
         # Reject every command outside this finite read-only fixture interface.
         properties = {
             "getprop ro.build.fingerprint": runtime.FINGERPRINT if self.compatible else "unsupported",
-            "magisk -V": "30700", "getprop ro.product.device": "cmi",
+            "magisk -V": self.magisk, "getprop ro.product.device": "cmi",
             "getprop ro.build.version.sdk": "33",
         }
         if command in properties:
@@ -43,8 +46,9 @@ class FakeAdb(runtime.Adb):
             return MAPS.encode()
         if command == f"awk '$5 == \"{runtime.TARGET}\" {{print}}' /proc/1234/mountinfo":
             return MOUNTS.encode()
-        if command in ("sha256sum " + runtime.TARGET,
-                       "sha256sum /proc/1234/root" + runtime.TARGET):
+        if command == "sha256sum /proc/1234/root" + runtime.TARGET:
+            return (self.process_hash + "  private path\n").encode()
+        if command == "sha256sum " + runtime.TARGET:
             return (runtime.PATCHED_SHA256 + "  private path\n").encode()
         if command.startswith("dd if=/proc/1234/mem bs=1 skip="):
             fields = dict(x.split("=", 1) for x in command.split() if "=" in x)
@@ -94,6 +98,30 @@ class RuntimeVerifierTests(unittest.TestCase):
         report = runtime.verify(device)
         self.assertEqual(runtime.exit_code(report), 1)
         self.assertFalse(any("/proc/" in command for command in device.commands))
+
+    def test_magisk_upgrade_does_not_mask_actual_loaded_code(self):
+        report = runtime.verify(FakeAdb(magisk="31100"))
+        self.assertEqual(report["loaded_patch_status"], "PASS")
+        self.assertEqual(report["compatibility"]["magisk_version_code"], "31100")
+        self.assertTrue(report["compatibility"]["magisk_meets_module_minimum"])
+        report = runtime.verify(FakeAdb(magisk="31100", stock_code=True,
+                                        process_hash=runtime.STOCK_SHA256))
+        self.assertEqual(report["loaded_patch_status"], "FAIL")
+        self.assertEqual(report["instructions"][0]["actual"], "7f040171")
+
+    def test_magisk_version_is_diagnostic_not_an_offset_guard(self):
+        for value in ("30600", "unknown"):
+            with self.subTest(magisk=value):
+                report = runtime.verify(FakeAdb(magisk=value))
+                self.assertEqual(report["loaded_patch_status"], "PASS")
+                self.assertFalse(report["compatibility"]["magisk_meets_module_minimum"])
+
+    def test_unknown_library_blocks_fixed_offset_reads(self):
+        device = FakeAdb(process_hash="f" * 64)
+        report = runtime.verify(device)
+        self.assertEqual(runtime.exit_code(report), 1)
+        self.assertIn("Unrecognized process-view library", report["error"])
+        self.assertFalse(any("/mem " in command for command in device.commands))
 
     def test_partial_initialization_cannot_pass(self):
         data = bytearray(runtime.GLOBAL_SIZE)

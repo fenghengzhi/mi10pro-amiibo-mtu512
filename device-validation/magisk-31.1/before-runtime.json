@@ -1,0 +1,47 @@
+{
+  "pid": 5502,
+  "base": "0x752042d000",
+  "root_sha": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+  "process_sha": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+  "instructions": {
+    "0x311660": {
+      "expected": "7f040871",
+      "actual": "7f040171",
+      "pass": false
+    },
+    "0x31168c": {
+      "expected": "04408052",
+      "actual": "04088052",
+      "pass": false
+    },
+    "0x3116a0": {
+      "expected": "c0418052",
+      "actual": "c0098052",
+      "pass": false
+    },
+    "0x556f84": {
+      "expected": "0a408052",
+      "actual": "0a088052",
+      "pass": false
+    },
+    "0x557668": {
+      "expected": "08408052",
+      "actual": "08088052",
+      "pass": false
+    },
+    "0x557674": {
+      "expected": "3f010871",
+      "actual": "3f010171",
+      "pass": false
+    }
+  },
+  "hid_globals": {
+    "0x6c5e62": 0,
+    "0x6c5e64": 0,
+    "0x6c5eaa": 0,
+    "0x6c5eac": 0
+  },
+  "maps": "752042d000-75205a7000 r--p 00000000 fc:07 1393                           /system_ext/lib64/libbluetooth_qti.so\n75205a7000-752097e000 r-xp 0017a000 fc:07 1393                           /system_ext/lib64/libbluetooth_qti.so\n752097e000-752097f000 rwxp 00551000 fc:07 1393                           /system_ext/lib64/libbluetooth_qti.so\n752097f000-7520a7d000 r-xp 00552000 fc:07 1393                           /system_ext/lib64/libbluetooth_qti.so\n7520a7d000-7520a8b000 r--p 00650000 fc:07 1393                           /system_ext/lib64/libbluetooth_qti.so\n7520a8b000-7520a8f000 rw-p 0065d000 fc:07 1393                           /system_ext/lib64/libbluetooth_qti.so",
+  "state": "state: ON",
+  "process_mounts": ""
+}

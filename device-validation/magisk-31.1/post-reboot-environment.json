@@ -1,0 +1,10 @@
+{
+  "boot_completed": "1",
+  "new_boot": true,
+  "magisk_version": "31.1:MAGISK:R",
+  "module_prop": "id=cmi_qti_hid_mtu512\nname=Mi 10 Pro QTI HID MTU 512 (exact firmware)\nversion=1.2-experimental\nversionCode=3\nauthor=Local device-specific build\ndescription=Exact-hash HID MTU 512 patch for cmi V816.0.9.0.TJACNXM. Magisk 30.7+ eligibility with firmware, hash and mount checks. Switch/amiibo validation still required.",
+  "module_status": "MOUNTED: verified private tmpfs copy, read-only executable bind and exact firmware; Bluetooth/amiibo runtime behavior unverified",
+  "disabled": "no",
+  "bluetooth_state": "state: ON",
+  "guard_sha256": "95e2963ffe9fd08c53d4b216d05d911ca0dc690c238d90956bf5070defeac6c8"
+}

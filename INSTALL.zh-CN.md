@@ -9,7 +9,7 @@
 | 手机 | 小米 10 Pro，设备代号 `cmi` |
 | 系统 | `V816.0.9.0.TJACNXM` |
 | Android | 13，SDK 33，arm64 |
-| Magisk | 30.7，版本号 30700 |
+| Magisk | 最低 30.7（30700）；仍须通过启动阶段和实际挂载检查 |
 | 目标库 | `/system_ext/lib64/libbluetooth_qti.so` |
 
 安装时和每次开机都会检查设备、系统指纹、原库 SHA-256、补丁库 SHA-256 及 SELinux 标签。开机检查还会检查 Magisk 版本和挂载冲突。检查不通过就不加载补丁，并将模块停用。
@@ -47,6 +47,12 @@ a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2
 
 使用 Magisk App 安装；此包不提供 Recovery 安装器。若提示原库不匹配，不要修改校验值强行安装。更新此模块前，需要先停用旧版本并重启，以恢复原始库视图。
 
+### Magisk 升级后模块自动关闭
+
+v1/v2 只接受 Magisk 30700，升级后会在 `status.txt` 写入 `DISABLED: Magisk version changed; this build requires 30700`，并创建 `disable` 文件。因此反复手动开启再重启仍会关闭，而且该次启动不会加载补丁。
+
+安装 v3（`1.2-experimental` / versionCode 3）解决此问题。v3 改为最低版本检查，与精确固件／库哈希检查分开。旧模块已自动停用并重启到原库视图时，可直接安装 v3；确认模块开启后重启，再运行下面的只读验证器。无需降级 Magisk，也不要自行删除固件或哈希保护。
+
 ## 验证是否已加载
 
 连接 ADB 后运行：
@@ -71,6 +77,8 @@ python3 verify_runtime.py --require-hid-initialized --output runtime-hid-check.j
 ```
 
 两通道的初始化标志应为 1、MTU 应为 512。尚未初始化时可能均为 0；初始化后的字段也可能保留，因此这些值不代表当前一定仍注册或已经与 Switch 建立连接。验证器不会自动重启蓝牙、启动 App 或修改手机；可用 `--adb` 指定 adb 路径、`--serial` 选择设备，报告不保存序列号或 MAC。
+
+验证器将 Magisk 版本作为诊断信息记录，不再因升级而直接停止检查；设备／固件不匹配或蓝牙进程所见库哈希未知时，仍拒绝读取固定内存偏移。模块是否生效应以进程指令和 HID 初始化值为准。
 
 ## 恢复原库
 

@@ -1,5 +1,13 @@
 # Packaging decision and verification
 
+## v3 Magisk upgrade compatibility (2026-10-30)
+
+The exact 30700 gate caused the module itself to create `disable` on Magisk 31.1 (31100), before mounting anything. The Bluetooth process had stock instructions. v3 uses the same numeric minimum-version helper in installation and boot (>=30700); missing, malformed, old or failed version reads still reject. All actual firmware/hash/early-boot/tmpfs/mount guards remain mandatory. No binary patch bytes changed.
+
+Official [v31.1 module lifecycle](https://github.com/topjohnwu/Magisk/blob/v31.1/native/src/core/module.rs), [script environment](https://github.com/topjohnwu/Magisk/blob/v31.1/native/src/core/scripting.cpp), [mount cleanup](https://github.com/topjohnwu/Magisk/blob/v31.1/native/src/core/mount.rs), and [installer](https://github.com/topjohnwu/Magisk/blob/v31.1/scripts/util_functions.sh) preserve the contracts used by this module. Full reboot testing on the current phone confirmed the enabled flag, read-only mount, all six patched instructions, and both HID configuration MTUs at 512 after JoyCon Droid initialization. See [device evidence](device-validation/magisk-31.1/).
+
+The runtime verifier no longer refuses inspection just because Magisk changed. It records the version/minimum eligibility and checks firmware plus a known stock/patched process-view hash before reading fixed offsets. 44 guard cases and 12 verifier cases pass. Future version numbers passing the minimum check are not proof that their runtime behavior has already been tested. Historical exact-version and test-count statements below describe earlier module versions.
+
 ## v2 device-tested loading fix (2026-09-28)
 
 The original direct bind from the module payload was visible to init/Zygote but stripped from the Bluetooth app's namespace in the current Shamiko whitelist setup. Its status text was therefore insufficient evidence. The same six-instruction payload now gets copied to a fresh root-private `/dev/cmi_hid_mtu512` tmpfs directory before binding. This is a new inode, not a link or another bind to the module file. No root grants, hiding settings, or SELinux policies are changed.

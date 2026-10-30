@@ -17,7 +17,7 @@ sh mtu-module/tests/test_guard.sh
 .venv/bin/python mtu-module/tests/test_builder.py
 .venv/bin/python test_runtime_verifier.py
 .venv/bin/python -m unittest discover -s ci -p 'test_*.py' -v
-.venv/bin/python mtu-module/build.py --stock device/libbluetooth_qti.so --patched patched/libbluetooth_qti.so --review static-review.json --output dist/cmi-hid-mtu512-V816.0.9.0-v2.zip
+.venv/bin/python mtu-module/build.py --stock device/libbluetooth_qti.so --patched patched/libbluetooth_qti.so --review static-review.json --output dist/cmi-hid-mtu512-V816.0.9.0-v3.zip
 ```
 
 `static-review.json` attests only to the supplied six-instruction patch and exact pair of hashes. Do not reuse it for other firmware or different edits. See `binary-review.md`, `mtu-source-audit.md`, `module-packaging-notes.md`, and the test-result files for evidence and limits.
@@ -26,7 +26,7 @@ sh mtu-module/tests/test_guard.sh
 
 The builder refuses to replace an existing output ZIP; use a new filename or remove your generated ZIP before rebuilding. Generated `device/`, `patched/`, `.venv/`, and `dist/` directories are ignored by Git.
 
-`static-review.json` retains its original static-only attestation; later device evidence is recorded separately in [VALIDATION.zh-CN.md](VALIDATION.zh-CN.md). The six-instruction binary is unchanged in v2; only loading and guards changed. Switch/amiibo behavior remains untested. See [installation and recovery instructions](INSTALL.zh-CN.md).
+`static-review.json` retains its original static-only attestation; later device evidence is recorded separately in [VALIDATION.zh-CN.md](VALIDATION.zh-CN.md). The six-instruction binary is unchanged in v2 and v3; only loading and guards changed. v3 accepts numeric Magisk version codes >=30700, while firmware/hash/early-boot/mount checks still determine activation. This is a minimum version policy, not a claim that every newer Magisk version has been tested. Switch/amiibo behavior remains untested. See [installation and recovery instructions](INSTALL.zh-CN.md).
 
 ## GitHub Actions and release history
 

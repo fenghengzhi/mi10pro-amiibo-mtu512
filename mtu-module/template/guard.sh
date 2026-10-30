@@ -7,6 +7,20 @@ mtu_reject() {
   return 1
 }
 
+mtu_magisk_preflight() {
+  # Version is a minimum prerequisite, not proof of compatibility. Actual
+  # firmware, early-boot, staging and mount checks below still gate every boot.
+  local version_code="${1-}"
+  case "$version_code" in
+    ''|*[!0-9]*) mtu_reject 'missing or invalid Magisk version code'; return 1 ;;
+  esac
+  [ "$version_code" -ge 30700 ] 2>/dev/null || {
+    mtu_reject 'Magisk 30.7 (30700) or newer is required'
+    return 1
+  }
+  return 0
+}
+
 mtu_sha256() {
   local digest_line
   digest_line=$(sha256sum "$1" 2>/dev/null) || return 1
@@ -141,14 +155,15 @@ mtu_fail_boot() {
 }
 
 mtu_run_boot() {
-  local moddir="$1" payload="$1/payload/libbluetooth_qti.so"
+  local moddir="$1" payload="$1/payload/libbluetooth_qti.so" magisk_code
   # The optional directory is only for the host test harness. The boot entry
   # point always uses this fixed /dev path, which is recreated after each reboot.
   local stage_dir="${2:-/dev/cmi_hid_mtu512}" stage
   stage="$stage_dir/libbluetooth_qti.so"
   [ -f "$moddir/skip_mount" ] || { mtu_reject 'required skip_mount flag missing'; mtu_fail_boot "$moddir"; return 1; }
   [ ! -e "$moddir/system" ] || { mtu_reject 'unexpected automatic-mount tree'; mtu_fail_boot "$moddir"; return 1; }
-  [ "$(magisk -V)" = 30700 ] || { mtu_reject 'Magisk version changed; this build requires 30700'; mtu_fail_boot "$moddir"; return 1; }
+  magisk_code=$(magisk -V 2>/dev/null) || { mtu_reject 'cannot read Magisk version code'; mtu_fail_boot "$moddir"; return 1; }
+  mtu_magisk_preflight "$magisk_code" || { mtu_fail_boot "$moddir"; return 1; }
   mtu_preflight "$MTU_TARGET" "$payload" || { mtu_fail_boot "$moddir"; return 1; }
   mtu_early_boot || { mtu_fail_boot "$moddir"; return 1; }
   if mtu_mount_collision "$MTU_TARGET"; then

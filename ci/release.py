@@ -73,7 +73,7 @@ def prepare(root, env, now=None):
     title = f"{now:%Y-%m-%d %H:%M:%S} UTC · MTU 512 {props['version']} · #{ctx['GITHUB_RUN_NUMBER']}.{ctx['GITHUB_RUN_ATTEMPT']}"
     body = f"""自动构建的 Magisk 安装包。请下载 Assets 中的 **`{package.name}`**；GitHub 自动生成的 Source code ZIP 不是安装包。
 
-仅支持小米 10 Pro（cmi）、`V816.0.9.0.TJACNXM`、Android 13 / SDK 33、Magisk 30.7。
+仅支持小米 10 Pro（cmi）、`V816.0.9.0.TJACNXM`、Android 13 / SDK 33。Magisk 最低 30.7；版本号满足最低要求后，仍须通过固件、库哈希、启动阶段及实际挂载检查。
 
 - 构建时间：{now:%Y-%m-%d %H:%M:%S UTC}
 - 模块版本：`{props['version']}`（versionCode {props['versionCode']}）

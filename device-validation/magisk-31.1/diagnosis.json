@@ -1,0 +1,9 @@
+{
+  "magisk_version": "31.1:MAGISK:R\n31100",
+  "firmware": "Xiaomi/cmi/cmi:13/TKQ1.221114.001/V816.0.9.0.TJACNXM:user/release-keys\n33",
+  "module_reason": "DISABLED: Magisk version changed; this build requires 30700",
+  "initial_disable_flag_present": true,
+  "shamiko_description": "[Unsupported environment]",
+  "shamiko_configuration_changed_by_this_fix": false,
+  "bluetooth_root_access_granted_by_this_fix": false
+}

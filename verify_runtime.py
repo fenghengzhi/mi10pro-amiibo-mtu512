@@ -21,7 +21,8 @@ import subprocess
 TARGET = "/system_ext/lib64/libbluetooth_qti.so"
 FINGERPRINT = "Xiaomi/cmi/cmi:13/TKQ1.221114.001/V816.0.9.0.TJACNXM:user/release-keys"
 PATCHED_SHA256 = "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2"
-MAGISK_VERSION_CODE = "30700"
+STOCK_SHA256 = "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039"
+MIN_MAGISK_VERSION_CODE = 30700
 PATCHES = (
     (0x311660, "7f040871"), (0x31168C, "04408052"),
     (0x3116A0, "c0418052"), (0x556F84, "0a408052"),
@@ -156,7 +157,7 @@ def hid_initialization(data):
 
 def verify(adb):
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "timestamp_utc": datetime.now(timezone.utc).isoformat(),
         "scope": "Read-only check of this firmware's loaded instructions and HID configuration.",
         "limitations": ["No long HID report transmission is tested.",
@@ -168,18 +169,21 @@ def verify(adb):
         magisk = adb.root_text("magisk -V", "Read Magisk version")
         device = adb.root_text("getprop ro.product.device", "Read device model")
         sdk = adb.root_text("getprop ro.build.version.sdk", "Read Android SDK")
-        compatible = (fingerprint == FINGERPRINT and magisk == MAGISK_VERSION_CODE
-                      and device == "cmi" and sdk == "33")
+        # Fixed offsets depend on the firmware/library, not the Magisk release.
+        # Diagnose the actual loaded bytes even when a version gate stopped the module.
+        compatible = fingerprint == FINGERPRINT and device == "cmi" and sdk == "33"
         report["compatibility"] = {
             "status": "PASS" if compatible else "FAIL",
             "expected_fingerprint": FINGERPRINT,
             "fingerprint_matches": fingerprint == FINGERPRINT,
             "device_matches_cmi": device == "cmi", "sdk_matches_33": sdk == "33",
-            "expected_magisk_version_code": MAGISK_VERSION_CODE,
-            "magisk_version_matches": magisk == MAGISK_VERSION_CODE,
+            "magisk_version_code": magisk if re.fullmatch(r"[0-9]{1,9}", magisk) else None,
+            "minimum_module_magisk_version_code": MIN_MAGISK_VERSION_CODE,
+            "magisk_meets_module_minimum": bool(re.fullmatch(r"[0-9]{1,9}", magisk))
+                and int(magisk) >= MIN_MAGISK_VERSION_CODE,
         }
         if not compatible:
-            raise InspectionError("Firmware/device/SDK/Magisk mismatch; fixed memory offsets were not read.")
+            raise InspectionError("Firmware/device/SDK mismatch; fixed memory offsets were not read.")
         pid = adb.pid()
         starttime = adb.starttime(pid)
         base, mappings = adb.mappings(pid)
@@ -191,6 +195,8 @@ def verify(adb):
             "process_namespace_sha256": adb.digest(f"/proc/{pid}/root{TARGET}"),
             "limitation": "Path hashes are corroborating evidence; loaded instructions are read separately.",
         }
+        if report["library_path_hashes"]["process_namespace_sha256"] not in (STOCK_SHA256, PATCHED_SHA256):
+            raise InspectionError("Unrecognized process-view library hash; fixed memory offsets were not read.")
         report["instructions"] = [
             {"virtual_offset": hex(offset), "expected": expected,
              "actual": adb.memory(pid, base + offset, 4).hex()}

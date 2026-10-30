@@ -68,7 +68,7 @@ mtu_context() {
   if [ "$1" = "$STAGE_FILE_TEST" ] && [ "$TEST_STAGE_CONTEXT_BAD" = 1 ]; then printf '%s\n' 'u:object_r:bad:s0';
   else printf '%s\n' "$TEST_CONTEXT"; fi
 }
-magisk() { printf '%s\n' "$TEST_MAGISK"; }
+magisk() { printf '%s\n' "$TEST_MAGISK"; [ "$TEST_MAGISK_FAIL" = 0 ]; }
 mtu_mount_collision() {
   [ "$TEST_COLLISION" != error ] || return 2
   [ "$TEST_COLLISION" = 1 ]
@@ -118,7 +118,7 @@ reset_fixture() {
   cp "$TEST_ROOT/patched" "$MODDIR_TEST/payload/libbluetooth_qti.so"
   TEST_DEVICE=$MTU_DEVICE TEST_SDK=$MTU_SDK TEST_FINGERPRINT=$MTU_FINGERPRINT
   TEST_BOOT=0 TEST_ZYGOTE=stopped TEST_CONTEXT=$MTU_CONTEXT TEST_COLLISION=0
-  TEST_MAGISK=30700
+  TEST_MAGISK=30700 TEST_MAGISK_FAIL=0
   TEST_BIND_FAIL=0 TEST_REMOUNT_FAIL=0 MOUNT_CALLS=0 UNMOUNT_CALLS=0
   MTU_PATCHED_SHA256=$GOOD_PAYLOAD_SHA
 }
@@ -131,8 +131,13 @@ assert_refused() {
 }
 reset_fixture; TEST_DEVICE=other; assert_refused 'wrong device'
 reset_fixture; TEST_SDK=34; assert_refused 'wrong SDK'
-reset_fixture; TEST_MAGISK=30800; assert_refused 'changed Magisk lifecycle'
+reset_fixture; TEST_MAGISK=30600; assert_refused 'Magisk below minimum'
+reset_fixture; TEST_MAGISK=''; assert_refused 'missing Magisk version'
+reset_fixture; TEST_MAGISK='31.1'; assert_refused 'non-numeric Magisk version'
+reset_fixture; TEST_MAGISK='31100 extra'; assert_refused 'malformed Magisk version'
+reset_fixture; TEST_MAGISK_FAIL=1; assert_refused 'Magisk version command failure'
 reset_fixture; TEST_FINGERPRINT='OTA changed'; assert_refused 'OTA fingerprint change'
+reset_fixture; TEST_MAGISK=31100; TEST_FINGERPRINT='OTA changed'; assert_refused 'OTA fingerprint change on Magisk 31.1'
 reset_fixture; MTU_STOCK_SHA256_SAVED=$MTU_STOCK_SHA256; MTU_STOCK_SHA256=$(printf '%064d' 0); if run_boot; then exit 1; fi; [ "$MOUNT_CALLS" -eq 0 ]; MTU_STOCK_SHA256=$MTU_STOCK_SHA256_SAVED; printf 'PASS refused stock hash mismatch\n'
 reset_fixture; cp "$TEST_ROOT/patched" "$MTU_TARGET"; if mtu_preflight "$MTU_TARGET" "$MODDIR_TEST/payload/libbluetooth_qti.so"; then exit 1; fi; [ "$MOUNT_CALLS" -eq 0 ]; printf 'PASS refused reinstall over mounted patch\n'
 reset_fixture; printf 'corrupt\n' > "$MODDIR_TEST/payload/libbluetooth_qti.so"; assert_refused 'payload corruption'
@@ -158,5 +163,14 @@ reset_fixture; TEST_BIND_FAIL=1; if run_boot; then exit 1; fi; [ "$MOUNT_CALLS" 
 reset_fixture; TEST_REMOUNT_FAIL=1; if run_boot; then exit 1; fi; [ "$MOUNT_CALLS" -eq 2 ]; [ "$UNMOUNT_CALLS" -eq 1 ]; [ "$(mtu_sha256 "$MTU_TARGET")" = "$MTU_STOCK_SHA256" ]; [ ! -e "$STAGE_DIR_TEST" ]; printf 'PASS remount failure rolls back and cleans stage\n'
 reset_fixture; TEST_MOUNT_VERIFY_FAIL=1; if run_boot; then exit 1; fi; [ "$UNMOUNT_CALLS" -eq 1 ]; [ ! -e "$STAGE_DIR_TEST" ]; [ "$(mtu_sha256 "$MTU_TARGET")" = "$MTU_STOCK_SHA256" ]; printf 'PASS mount origin or flags failure rolls back and cleans stage\n'
 reset_fixture; TEST_REMOUNT_FAIL=1; TEST_UNMOUNT_FAIL=1; if run_boot; then exit 1; fi; [ "$UNMOUNT_CALLS" -eq 1 ]; [ -f "$STAGE_FILE_TEST" ]; case "$MTU_REASON" in *'rollback unmount failed'*) ;; *) exit 1 ;; esac; printf 'PASS rollback failure preserves stage and requests reboot\n'
-reset_fixture; run_boot; [ "$MOUNT_CALLS" -eq 2 ]; [ ! -f "$MODDIR_TEST/disable" ]; [ "$(mtu_sha256 "$MTU_TARGET")" = "$MTU_PATCHED_SHA256" ]; [ -f "$STAGE_FILE_TEST" ]; printf 'PASS exact match mounts only reviewed payload\n'
+for supported_version in 30700 31100 31200; do
+  reset_fixture
+  TEST_MAGISK=$supported_version
+  run_boot
+  [ "$MOUNT_CALLS" -eq 2 ]
+  [ ! -f "$MODDIR_TEST/disable" ]
+  [ "$(mtu_sha256 "$MTU_TARGET")" = "$MTU_PATCHED_SHA256" ]
+  [ -f "$STAGE_FILE_TEST" ]
+  printf 'PASS Magisk %s mounts only reviewed payload after all guards\n' "$supported_version"
+done
 printf 'All host guard tests passed. No Android device or real mount was used.\n'
