@@ -2,8 +2,8 @@
   "status": "STATIC_REVIEWED_NOT_DEVICE_TESTED",
   "firmware_fingerprint": "Xiaomi/cmi/cmi:13/TKQ1.221114.001/V816.0.9.0.TJACNXM:user/release-keys",
   "stock_sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
-  "patched_sha256": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2",
-  "review_summary": "Exact pulled library independently reviewed through HID Device send path, callers, consumers, CFI thunks, ordinary memcpy and 4112-byte downstream allocation. Six instructions change report cap, allocation, diagnostics, both advertised MTUs, and peer cap. 74 Unicorn ARM64 behavioral cases and exact ELF/instruction/input-rejection checks passed. Phone stock preflight passed read-only. Android runtime, mount activation and Switch/amiibo not tested.",
+  "patched_sha256": "d537a6ffcac736537a9a3defe2178dc1cd8d29bd588ff1a71e3fe648f4d93bbe",
+  "review_summary": "Exact-firmware combined patch preserves the six reviewed MTU edits, promotes only the native Classic SSP temporary classification to persistent for both pairing_cb and BTM, and serializes incoming HID interrupt requests only inside the already-busy security branch through the original deferred path. Authentication, encryption, user rejection, different-host checks and HIDD state checks remain intact. ELF layout and independent assembly verified; native behavior tests and runtime evidence are recorded separately. Three additional instruction edits force HCI Write_Class_Of_Device bytes 08 25 00 from first initialization. The input CoD argument is entirely unused; both normal pointer calls and Companion raw-class hook calls are validated. Headers, allocation, dispatch, ABI and caller buffers remain intact.",
   "patches": [
     {
       "offset": 3216992,
@@ -40,10 +40,69 @@
       "before_hex": "3f010171",
       "after_hex": "3f010871",
       "rationale": "Preserve min(peer MTU, local cap) semantics."
+    },
+    {
+      "offset": 4059036,
+      "before_hex": "41008052",
+      "after_hex": "21008052",
+      "rationale": "Classify Classic SSP JustWorks as persistent in both pairing_cb and the BTM record; keep user confirmation and NONE removal semantics."
+    },
+    {
+      "offset": 5250304,
+      "before_hex": "084b7339",
+      "after_hex": "a8c35fb8",
+      "rationale": "Load saved is_originator instead of preparing the optional busy diagnostic."
+    },
+    {
+      "offset": 5250308,
+      "before_hex": "e1daffb0",
+      "after_hex": "48010037",
+      "rationale": "Outgoing requests retain the original native busy security checks."
+    },
+    {
+      "offset": 5250312,
+      "before_hex": "e39a4079",
+      "after_hex": "7f4f0071",
+      "rationale": "Match only incoming HID interrupt PSM 0x0013 in the busy branch."
+    },
+    {
+      "offset": 5250316,
+      "before_hex": "40070051",
+      "after_hex": "20280054",
+      "rationale": "Defer HID interrupt through the existing pending-security flag and BTM_CMD_STARTED path."
+    },
+    {
+      "offset": 5250320,
+      "before_hex": "21541c91",
+      "after_hex": "07000014",
+      "rationale": "Other PSMs resume existing security logic; only one optional diagnostic is omitted."
+    },
+    {
+      "offset": 5575356,
+      "before_hex": "680a4039",
+      "after_hex": "08018052",
+      "rationale": "Encode fixed controller CoD low byte 0x08 before runtime hooks are installed."
+    },
+    {
+      "offset": 5575364,
+      "before_hex": "68064039",
+      "after_hex": "a8048052",
+      "rationale": "Encode fixed controller CoD middle byte 0x25 without reading or changing the caller buffer."
+    },
+    {
+      "offset": 5575376,
+      "before_hex": "68024039",
+      "after_hex": "08008052",
+      "rationale": "Encode fixed controller CoD high byte zero; the input argument is now unused."
     }
   ],
-  "behavioral_test_cases": 74,
-  "device_preflight": "stock compatibility and late activation refusal passed; no mount or install performed",
+  "device_preflight": "Exact phone firmware and existing MTU runtime identified; this combined payload has not yet been tested on the phone.",
   "runtime_tested": false,
-  "switch_amiibo_tested": false
+  "switch_amiibo_tested": false,
+  "scope_notes": [
+    "Classic JustWorks persistent classification applies to this exact firmware generally, not only Nintendo-named devices.",
+    "The HID ordering edit omits one busy diagnostic message; it does not bypass the security or HIDD host/state checks.",
+    "Mode-Change hook recognition is not changed by this static payload.",
+    "While this module is enabled, every Classic Bluetooth Write_Class_Of_Device command advertises controller class 0x002508, matching Companion intent from startup."
+  ]
 }

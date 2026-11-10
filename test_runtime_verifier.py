@@ -74,7 +74,7 @@ class RuntimeVerifierTests(unittest.TestCase):
         self.assertEqual(report["status"], "LOADED_AND_HID_INITIALIZED_512")
         self.assertEqual(report["process"]["starttime_ticks"], 1000)
         self.assertEqual(runtime.exit_code(report, True), 0)
-        self.assertEqual(len(report["instructions"]), 6)
+        self.assertEqual(len(report["instructions"]), 15)
 
     def test_patched_path_with_old_memory_is_not_a_pass(self):
         report = runtime.verify(FakeAdb(stock_code=True))

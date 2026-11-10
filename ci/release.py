@@ -70,16 +70,21 @@ def prepare(root, env, now=None):
     info_path = dist / 'build-info.json'
     info_path.write_text(json.dumps(info, indent=2) + '\n')
     (dist / 'SHA256SUMS.txt').write_text(''.join(f'{sha256(p)}  {p.name}\n' for p in [package, info_path]))
-    title = f"{now:%Y-%m-%d %H:%M:%S} UTC · MTU 512 {props['version']} · #{ctx['GITHUB_RUN_NUMBER']}.{ctx['GITHUB_RUN_ATTEMPT']}"
+    title = f"{now:%Y-%m-%d %H:%M:%S} UTC · Switch 2 / MTU 512 v{props['versionCode']} ({props['version']}) · #{ctx['GITHUB_RUN_NUMBER']}.{ctx['GITHUB_RUN_ATTEMPT']}"
     body = f"""自动构建的 Magisk 安装包。请下载 Assets 中的 **`{package.name}`**；GitHub 自动生成的 Source code ZIP 不是安装包。
 
 仅支持小米 10 Pro（cmi）、`V816.0.9.0.TJACNXM`、Android 13 / SDK 33。Magisk 最低 30.7；版本号满足最低要求后，仍须通过固件、库哈希、启动阶段及实际挂载检查。
+
+本版保留 HID MTU 512，并修正 Classic SSP 配对密钥持久化、提前到达的 HID 中断通道处理顺序，以及蓝牙启动时的手柄设备类别（CoD）编码。模块启用期间，所有经典蓝牙 CoD 写入均为 `0x002508`。组合补丁修改 15 条 ARM64 指令、38 个字节。
+
+相同载荷已有本机 Switch 2 配对与保存密钥重连记录：两次观察分别持续约 173 秒和 197 秒，无非预期断开。游戏内 amiibo 尚未单独确认，Mode-Change hook 未作修改。**升级正在加载的旧模块时，先停用并重启恢复原库，再安装新版并重启。**
 
 - 构建时间：{now:%Y-%m-%d %H:%M:%S UTC}
 - 模块版本：`{props['version']}`（versionCode {props['versionCode']}）
 - 源码提交：[`{ctx['GITHUB_SHA'][:12]}`](https://github.com/{ctx['GITHUB_REPOSITORY']}/commit/{ctx['GITHUB_SHA']})
 - 构建和测试日志：[Actions #{ctx['GITHUB_RUN_NUMBER']}.{ctx['GITHUB_RUN_ATTEMPT']}]({build_url})
 - 安装包 SHA-256：`{info['package_sha256']}`
+- 补丁库 SHA-256：`{payload_sha}`
 
 本次 CI 完成静态检查、ARM64 模拟执行和模块保护测试；不代表这次构建已经在手机或 Switch 上实测。既有实机证据和安装限制见[验证报告](https://github.com/{ctx['GITHUB_REPOSITORY']}/blob/{ctx['GITHUB_SHA']}/VALIDATION.zh-CN.md)与[安装说明](https://github.com/{ctx['GITHUB_REPOSITORY']}/blob/{ctx['GITHUB_SHA']}/INSTALL.zh-CN.md)。
 

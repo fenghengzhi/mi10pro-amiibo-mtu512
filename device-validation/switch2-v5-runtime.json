@@ -1,0 +1,205 @@
+{
+  "schema_version": 2,
+  "timestamp_utc": "2026-11-10T00:13:22.122190+00:00",
+  "scope": "Read-only check of this firmware's loaded instructions and HID configuration.",
+  "limitations": [
+    "No long HID report transmission is tested.",
+    "No Switch pairing or amiibo functionality is tested.",
+    "A single snapshot does not establish reboot persistence or ongoing Bluetooth health."
+  ],
+  "compatibility": {
+    "status": "PASS",
+    "expected_fingerprint": "Xiaomi/cmi/cmi:13/TKQ1.221114.001/V816.0.9.0.TJACNXM:user/release-keys",
+    "fingerprint_matches": true,
+    "device_matches_cmi": true,
+    "sdk_matches_33": true,
+    "magisk_version_code": "31100",
+    "minimum_module_magisk_version_code": 30700,
+    "magisk_meets_module_minimum": true
+  },
+  "process": {
+    "pid": 5500,
+    "starttime_ticks": 1769,
+    "library_base": "0x701842a000",
+    "target_mappings": [
+      {
+        "start": "0x701842a000",
+        "end": "0x70185a4000",
+        "permissions": "r--p",
+        "file_offset": "0x0",
+        "device": "00:11",
+        "inode": 38447
+      },
+      {
+        "start": "0x70185a4000",
+        "end": "0x701897b000",
+        "permissions": "r-xp",
+        "file_offset": "0x17a000",
+        "device": "00:11",
+        "inode": 38447
+      },
+      {
+        "start": "0x701897b000",
+        "end": "0x701897c000",
+        "permissions": "rwxp",
+        "file_offset": "0x551000",
+        "device": "00:11",
+        "inode": 38447
+      },
+      {
+        "start": "0x701897c000",
+        "end": "0x7018a7a000",
+        "permissions": "r-xp",
+        "file_offset": "0x552000",
+        "device": "00:11",
+        "inode": 38447
+      },
+      {
+        "start": "0x7018a7a000",
+        "end": "0x7018a88000",
+        "permissions": "r--p",
+        "file_offset": "0x650000",
+        "device": "00:11",
+        "inode": 38447
+      },
+      {
+        "start": "0x7018a88000",
+        "end": "0x7018a8c000",
+        "permissions": "rw-p",
+        "file_offset": "0x65d000",
+        "device": "00:11",
+        "inode": 38447
+      }
+    ]
+  },
+  "library_path_hashes": {
+    "expected_sha256": "d537a6ffcac736537a9a3defe2178dc1cd8d29bd588ff1a71e3fe648f4d93bbe",
+    "root_namespace_sha256": "d537a6ffcac736537a9a3defe2178dc1cd8d29bd588ff1a71e3fe648f4d93bbe",
+    "process_namespace_sha256": "d537a6ffcac736537a9a3defe2178dc1cd8d29bd588ff1a71e3fe648f4d93bbe",
+    "limitation": "Path hashes are corroborating evidence; loaded instructions are read separately."
+  },
+  "instructions": [
+    {
+      "virtual_offset": "0x311660",
+      "expected": "7f040871",
+      "actual": "7f040871",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x31168c",
+      "expected": "04408052",
+      "actual": "04408052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x3116a0",
+      "expected": "c0418052",
+      "actual": "c0418052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x556f84",
+      "expected": "0a408052",
+      "actual": "0a408052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x557668",
+      "expected": "08408052",
+      "actual": "08408052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x557674",
+      "expected": "3f010871",
+      "actual": "3f010871",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x3def9c",
+      "expected": "21008052",
+      "actual": "21008052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x501d00",
+      "expected": "a8c35fb8",
+      "actual": "a8c35fb8",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x501d04",
+      "expected": "48010037",
+      "actual": "48010037",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x501d08",
+      "expected": "7f4f0071",
+      "actual": "7f4f0071",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x501d0c",
+      "expected": "20280054",
+      "actual": "20280054",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x501d10",
+      "expected": "07000014",
+      "actual": "07000014",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x5512bc",
+      "expected": "08018052",
+      "actual": "08018052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x5512c4",
+      "expected": "a8048052",
+      "actual": "a8048052",
+      "status": "PASS"
+    },
+    {
+      "virtual_offset": "0x5512d0",
+      "expected": "08008052",
+      "actual": "08008052",
+      "status": "PASS"
+    }
+  ],
+  "hid_initialization": {
+    "status": "PENDING",
+    "channels": {
+      "control": {
+        "presence": 0,
+        "mtu": 0
+      },
+      "interrupt": {
+        "presence": 0,
+        "mtu": 0
+      }
+    },
+    "detail": "HID configuration is not initialized yet; open a JoyCon Droid controller page and rerun.",
+    "limitation": "Initialized values can remain after app unregistration; this does not prove a current registration or a peer connection."
+  },
+  "target_mount_origins": [
+    {
+      "root": "/cmi_hid_mtu512/libbluetooth_qti.so",
+      "mountpoint": "/system_ext/lib64/libbluetooth_qti.so",
+      "options": [
+        "ro",
+        "nosuid",
+        "nodev",
+        "relatime"
+      ],
+      "filesystem": "tmpfs",
+      "source": "tmpfs"
+    }
+  ],
+  "stable_process_snapshot": true,
+  "loaded_patch_status": "PASS",
+  "status": "LOADED_HID_INITIALIZATION_PENDING"
+}

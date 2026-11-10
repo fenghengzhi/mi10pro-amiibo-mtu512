@@ -48,6 +48,9 @@ jobs:
           clang -target aarch64-linux-android33 -c patch-instructions.s -o patch-instructions.o
           python verify_patch.py
           python test_mtu_binary.py
+          python test_bond_binary.py device/libbluetooth_qti.so patched/libbluetooth_qti.so --output bond-test-results.json
+          python test_cod_binary.py device/libbluetooth_qti.so patched/libbluetooth_qti.so --output cod-test-results.json
+          python test_hid_order_binary.py --stock device/libbluetooth_qti.so --patched patched/libbluetooth_qti.so --output-dir device-validation/switch2-static
 
       - name: Test module guards, packaging and verification tools
         run: |

@@ -1,0 +1,41 @@
+{
+  "stock_sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+  "patched_sha256": "d537a6ffcac736537a9a3defe2178dc1cd8d29bd588ff1a71e3fe648f4d93bbe",
+  "patches": [
+    {
+      "offset": 5250304,
+      "before_hex": "084b7339",
+      "after_hex": "a8c35fb8",
+      "rationale": "Load saved is_originator instead of preparing optional busy diagnostic.",
+      "assembly": "ldur w8, [x29, #-4]"
+    },
+    {
+      "offset": 5250308,
+      "before_hex": "e1daffb0",
+      "after_hex": "48010037",
+      "rationale": "Outgoing requests retain the original native busy security checks.",
+      "assembly": "tbnz w8, #0, #0x501d2c"
+    },
+    {
+      "offset": 5250312,
+      "before_hex": "e39a4079",
+      "after_hex": "7f4f0071",
+      "rationale": "Match only HID interrupt PSM 0x0013.",
+      "assembly": "cmp w27, #0x13"
+    },
+    {
+      "offset": 5250316,
+      "before_hex": "40070051",
+      "after_hex": "20280054",
+      "rationale": "Incoming HID interrupt waits on the existing native pending-security path.",
+      "assembly": "b.eq #0x502210"
+    },
+    {
+      "offset": 5250320,
+      "before_hex": "21541c91",
+      "after_hex": "07000014",
+      "rationale": "Other PSMs resume the original security logic; omit only this optional trace.",
+      "assembly": "b #0x501d2c"
+    }
+  ]
+}

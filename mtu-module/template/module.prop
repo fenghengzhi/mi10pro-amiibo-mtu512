@@ -1,6 +1,6 @@
 id=cmi_qti_hid_mtu512
-name=Mi 10 Pro QTI HID MTU 512 (exact firmware)
-version=1.2-experimental
-versionCode=3
+name=Mi 10 Pro QTI Switch 2 + HID MTU 512 (exact firmware)
+version=1.4-experimental
+versionCode=5
 author=Local device-specific build
-description=Exact-hash HID MTU 512 patch for cmi V816.0.9.0.TJACNXM. Magisk 30.7+ eligibility with firmware, hash and mount checks. Switch/amiibo validation still required.
+description=Exact-firmware MTU 512, controller CoD from startup, persistent Classic SSP pairing and incoming HID channel ordering for cmi V816.0.9.0.TJACNXM. Magisk 30.7+, hash and mount guards retained; see validation report.

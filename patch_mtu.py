@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exact-build ARM64 HID MTU patch. Never writes to the input or to a device."""
+"""Exact-build ARM64 MTU, persistent-bond and HID-order patch. Never installs."""
 import argparse
 import hashlib
 import json
@@ -17,6 +17,19 @@ PATCHES = [
     (0x556f84, '0a088052', '0a408052', 'mov w10, #64', 'mov w10, #512', 'Shared immediate initializes both control and interrupt MTUs.'),
     (0x557668, '08088052', '08408052', 'mov w8, #64', 'mov w8, #512', 'Default/cap for peer MTU.'),
     (0x557674, '3f010171', '3f010871', 'cmp w9, #64', 'cmp w9, #512', 'Preserve min(peer MTU, local cap) semantics.'),
+    (0x3def9c, '41008052', '21008052', 'mov w1, #2', 'mov w1, #1', 'Classify Classic SSP JustWorks as persistent in both pairing_cb and the BTM record; keep user confirmation and NONE removal semantics.'),
+    # Inside the already-busy security branch only. Use its native pending
+    # path for incoming HID interrupt; no authentication or HIDD guard bypass.
+    (0x501d00, '084b7339', 'a8c35fb8', 'ldrb w8, [x24, #0xcd2]', 'ldur w8, [x29, #-4]', 'Load saved is_originator instead of preparing the optional busy diagnostic.'),
+    (0x501d04, 'e1daffb0', '48010037', 'adrp x1, #0x5e000', 'tbnz w8, #0, #0x501d2c', 'Outgoing requests retain the original native busy security checks.'),
+    (0x501d08, 'e39a4079', '7f4f0071', 'ldrh w3, [x23, #0x4c]', 'cmp w27, #0x13', 'Match only incoming HID interrupt PSM 0x0013 in the busy branch.'),
+    (0x501d0c, '40070051', '20280054', 'sub w0, w26, #1', 'b.eq #0x502210', 'Defer HID interrupt through the existing pending-security flag and BTM_CMD_STARTED path.'),
+    (0x501d10, '21541c91', '07000014', 'add x1, x1, #0x715', 'b #0x501d2c', 'Other PSMs resume existing security logic; only one optional diagnostic is omitted.'),
+    # Encode the controller class even on the first HCI write, before Companion
+    # installs its asynchronous hook. The caller's class buffer is not mutated.
+    (0x5512bc, '680a4039', '08018052', 'ldrb w8, [x19, #2]', 'mov w8, #8', 'Encode fixed controller CoD low byte 0x08 before runtime hooks are installed.'),
+    (0x5512c4, '68064039', 'a8048052', 'ldrb w8, [x19, #1]', 'mov w8, #0x25', 'Encode fixed controller CoD middle byte 0x25 without reading or changing the caller buffer.'),
+    (0x5512d0, '68024039', '08008052', 'ldrb w8, [x19]', 'mov w8, #0', 'Encode fixed controller CoD high byte zero; the input argument is now unused.'),
 ]
 
 def sha256(data):

@@ -1,0 +1,434 @@
+{
+  "status": "PASS",
+  "case_count": 83,
+  "stock_sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+  "patched_sha256": "d537a6ffcac736537a9a3defe2178dc1cd8d29bd588ff1a71e3fe648f4d93bbe",
+  "companion_scanner_before": [
+    [
+      5575300,
+      "pointer"
+    ]
+  ],
+  "companion_scanner_after": [
+    [
+      5575300,
+      "raw"
+    ]
+  ],
+  "cases": [
+    {
+      "variant": "stock",
+      "input_cod": "0x000000",
+      "output_cod": "0x000000"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x002508",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x5a020c",
+      "output_cod": "0x5a020c"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x180508",
+      "output_cod": "0x180508"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x52020c",
+      "output_cod": "0x52020c"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xffffff",
+      "output_cod": "0xffffff"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x123456",
+      "output_cod": "0x123456"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x8da75b",
+      "output_cod": "0x8da75b"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x34969f",
+      "output_cod": "0x34969f"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x901338",
+      "output_cod": "0x901338"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xa7d8f2",
+      "output_cod": "0xa7d8f2"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x80f771",
+      "output_cod": "0x80f771"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xfb05af",
+      "output_cod": "0xfb05af"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x409ef8",
+      "output_cod": "0x409ef8"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xcd3c4a",
+      "output_cod": "0xcd3c4a"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xef71fb",
+      "output_cod": "0xef71fb"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x225b05",
+      "output_cod": "0x225b05"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xab48c1",
+      "output_cod": "0xab48c1"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x0ba403",
+      "output_cod": "0x0ba403"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xd92416",
+      "output_cod": "0xd92416"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xe477b2",
+      "output_cod": "0xe477b2"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xe520d5",
+      "output_cod": "0xe520d5"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xf7f0e0",
+      "output_cod": "0xf7f0e0"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x63e635",
+      "output_cod": "0x63e635"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x60eb41",
+      "output_cod": "0x60eb41"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x4462de",
+      "output_cod": "0x4462de"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x420140",
+      "output_cod": "0x420140"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x733154",
+      "output_cod": "0x733154"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x137de5",
+      "output_cod": "0x137de5"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xacc217",
+      "output_cod": "0xacc217"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x47d63c",
+      "output_cod": "0x47d63c"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x00f320",
+      "output_cod": "0x00f320"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x22dc8a",
+      "output_cod": "0x22dc8a"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x8022fd",
+      "output_cod": "0x8022fd"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x778d9a",
+      "output_cod": "0x778d9a"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x5f15c4",
+      "output_cod": "0x5f15c4"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0xe91445",
+      "output_cod": "0xe91445"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x4e62d1",
+      "output_cod": "0x4e62d1"
+    },
+    {
+      "variant": "stock",
+      "input_cod": "0x2bdb5d",
+      "output_cod": "0x2bdb5d"
+    },
+    {
+      "variant": "stock",
+      "case": "nonreturning_allocator_failure"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x000000",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x002508",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x5a020c",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x180508",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x52020c",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xffffff",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x123456",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x8da75b",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x34969f",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x901338",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xa7d8f2",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x80f771",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xfb05af",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x409ef8",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xcd3c4a",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xef71fb",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x225b05",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xab48c1",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x0ba403",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xd92416",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xe477b2",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xe520d5",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xf7f0e0",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x63e635",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x60eb41",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x4462de",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x420140",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x733154",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x137de5",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xacc217",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x47d63c",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x00f320",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x22dc8a",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x8022fd",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x778d9a",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x5f15c4",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0xe91445",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x4e62d1",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "input_cod": "0x2bdb5d",
+      "output_cod": "0x002508"
+    },
+    {
+      "variant": "patched",
+      "case": "nonreturning_allocator_failure"
+    },
+    {
+      "variant": "patched",
+      "case": "unused_argument",
+      "argument": "0x82500"
+    },
+    {
+      "variant": "patched",
+      "case": "unused_argument",
+      "argument": "0x0"
+    },
+    {
+      "variant": "patched",
+      "case": "unused_argument",
+      "argument": "0xdeadbeef0000"
+    }
+  ],
+  "limitations": "No Android linker/trampoline/radio validation; allocator failure modeled as fatal like its native CHECK contract"
+}

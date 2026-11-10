@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "instruction_count": 6,
+  "instruction_count": 15,
   "checks": [
     {
       "address": "0x311660",
@@ -31,6 +31,51 @@
       "address": "0x557674",
       "before": "cmp w9, #0x40",
       "after": "cmp w9, #0x200"
+    },
+    {
+      "address": "0x3def9c",
+      "before": "mov w1, #2",
+      "after": "mov w1, #1"
+    },
+    {
+      "address": "0x501d00",
+      "before": "ldrb w8, [x24, #0xcd2]",
+      "after": "ldur w8, [x29, #-4]"
+    },
+    {
+      "address": "0x501d04",
+      "before": "adrp x1, #0x5e000",
+      "after": "tbnz w8, #0, #0x501d2c"
+    },
+    {
+      "address": "0x501d08",
+      "before": "ldrh w3, [x23, #0x4c]",
+      "after": "cmp w27, #0x13"
+    },
+    {
+      "address": "0x501d0c",
+      "before": "sub w0, w26, #1",
+      "after": "b.eq #0x502210"
+    },
+    {
+      "address": "0x501d10",
+      "before": "add x1, x1, #0x715",
+      "after": "b #0x501d2c"
+    },
+    {
+      "address": "0x5512bc",
+      "before": "ldrb w8, [x19, #2]",
+      "after": "mov w8, #8"
+    },
+    {
+      "address": "0x5512c4",
+      "before": "ldrb w8, [x19, #1]",
+      "after": "mov w8, #0x25"
+    },
+    {
+      "address": "0x5512d0",
+      "before": "ldrb w8, [x19]",
+      "after": "mov w8, #0"
     }
   ],
   "elf_headers_segments_and_section_layout_unchanged": true,
@@ -42,5 +87,5 @@
     "wrong_instruction"
   ],
   "original_sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
-  "patched_sha256": "a3e40e1121eaecd02357315bf22f9f61a2be87944094b8161bd722fe8e081fa2"
+  "patched_sha256": "d537a6ffcac736537a9a3defe2178dc1cd8d29bd588ff1a71e3fe648f4d93bbe"
 }

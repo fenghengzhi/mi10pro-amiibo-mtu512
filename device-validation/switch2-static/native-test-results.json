@@ -1,0 +1,128 @@
+{
+  "passed": 19,
+  "cases": [
+    {
+      "case": "busy_security",
+      "psm": "0x13",
+      "originator": 0,
+      "stock_return": 0,
+      "patched_return": 1
+    },
+    {
+      "case": "busy_security",
+      "psm": "0x13",
+      "originator": 1,
+      "stock_return": 0,
+      "patched_return": 0
+    },
+    {
+      "case": "busy_security",
+      "psm": "0x11",
+      "originator": 0,
+      "stock_return": 0,
+      "patched_return": 0
+    },
+    {
+      "case": "busy_security",
+      "psm": "0x19",
+      "originator": 0,
+      "stock_return": 0,
+      "patched_return": 0
+    },
+    {
+      "case": "busy_security",
+      "psm": "0x17",
+      "originator": 0,
+      "stock_return": 0,
+      "patched_return": 0
+    },
+    {
+      "case": "retry_after_security",
+      "busy": false,
+      "pairing": false
+    },
+    {
+      "case": "retry_after_security",
+      "busy": false,
+      "pairing": true
+    },
+    {
+      "case": "retry_after_security",
+      "busy": true,
+      "pairing": false
+    },
+    {
+      "case": "native_completion_resubmits_after_callback"
+    },
+    {
+      "case": "native_scheduler_waits_for_pairing_idle"
+    },
+    {
+      "case": "normal_control_security_then_interrupt"
+    },
+    {
+      "case": "native_hid_guard",
+      "state": 0,
+      "ctrl": 0,
+      "allow": true,
+      "different": false,
+      "psm": "0x13"
+    },
+    {
+      "case": "native_hid_guard",
+      "state": 6,
+      "ctrl": 112,
+      "allow": true,
+      "different": false,
+      "psm": "0x13"
+    },
+    {
+      "case": "native_hid_guard",
+      "state": 3,
+      "ctrl": 112,
+      "allow": true,
+      "different": false,
+      "psm": "0x13"
+    },
+    {
+      "case": "native_hid_guard",
+      "state": 2,
+      "ctrl": 112,
+      "allow": true,
+      "different": true,
+      "psm": "0x13"
+    },
+    {
+      "case": "native_hid_guard",
+      "state": 2,
+      "ctrl": 112,
+      "allow": false,
+      "different": false,
+      "psm": "0x13"
+    },
+    {
+      "case": "native_hid_guard",
+      "state": 2,
+      "ctrl": 112,
+      "allow": true,
+      "different": false,
+      "psm": "0x11"
+    },
+    {
+      "case": "native_hid_guard",
+      "state": 0,
+      "ctrl": 0,
+      "allow": true,
+      "different": false,
+      "psm": "0x17"
+    },
+    {
+      "case": "failed_security_still_rejected"
+    }
+  ],
+  "limitations": [
+    "External API returns are modeled, not an Android Bluetooth runtime.",
+    "PAC instructions skipped identically; SCS executes.",
+    "Does not prove Switch reconnection stability."
+  ]
+}

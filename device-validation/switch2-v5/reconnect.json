@@ -1,0 +1,127 @@
+{
+  "status": "RECONNECT_OBSERVED_WITH_SAVED_KEY",
+  "source_size": 638485,
+  "sha256": "eedbcd5a58a1bec637b9842dbbb0470076765afde2cd3d21e3a8e83a5d22d56d",
+  "records": 7334,
+  "truncated_records": 0,
+  "dropped_fields": [
+    0
+  ],
+  "switch_connections": [
+    {
+      "frame": 323,
+      "capture_time": "2026-11-10T08:17:53.602",
+      "status": 0,
+      "handle": 3
+    }
+  ],
+  "switch_disconnect_events": [],
+  "key_events": [
+    {
+      "frame": 406,
+      "capture_time": "2026-11-10T08:17:54.932",
+      "event": "LinkKeyRequest"
+    },
+    {
+      "frame": 407,
+      "capture_time": "2026-11-10T08:17:54.933",
+      "event": "LinkKeyReply"
+    }
+  ],
+  "authentication_events": [
+    {
+      "frame": 409,
+      "capture_time": "2026-11-10T08:17:54.979",
+      "event": "AuthenticationComplete",
+      "status": 0
+    },
+    {
+      "frame": 413,
+      "capture_time": "2026-11-10T08:17:55.057",
+      "event": "EncryptionChange",
+      "status": 0,
+      "enabled": 1
+    }
+  ],
+  "new_ssp_pairing_events": [],
+  "write_cod": [
+    {
+      "frame": 67,
+      "class": "0x002508"
+    }
+  ],
+  "report_counts": {
+    "TX_report_0x3f": 2,
+    "RX_report_0x01": 16,
+    "TX_report_0x21": 16,
+    "TX_report_0x30": 2910,
+    "RX_report_0x10": 349
+  },
+  "report_0x30": {
+    "first_frame": 477,
+    "last_frame": 7333,
+    "first_capture_time": "2026-11-10T08:17:57.463",
+    "last_capture_time": "2026-11-10T08:21:10.540",
+    "observed_span_seconds": 193.078,
+    "median_interval_ms": 66.358,
+    "max_interval_ms": 88.467
+  },
+  "connection_to_last_report_seconds": 196.939,
+  "subcommand_requests": 16,
+  "subcommand_replies": 16,
+  "subcommand_sequence_matches": true,
+  "connection_signaling": [
+    {
+      "frame": 417,
+      "capture_time": "2026-11-10T08:17:55.061",
+      "direction": "TX",
+      "kind": "request",
+      "id": 4,
+      "psm": "0x0011",
+      "source_cid": "0x0041"
+    },
+    {
+      "frame": 419,
+      "capture_time": "2026-11-10T08:17:55.109",
+      "direction": "RX",
+      "kind": "response",
+      "id": 4,
+      "destination_cid": "0x0042",
+      "source_cid": "0x0041",
+      "result": 0,
+      "status": 0
+    },
+    {
+      "frame": 427,
+      "capture_time": "2026-11-10T08:17:55.250",
+      "direction": "TX",
+      "kind": "request",
+      "id": 6,
+      "psm": "0x0013",
+      "source_cid": "0x0042"
+    },
+    {
+      "frame": 429,
+      "capture_time": "2026-11-10T08:17:55.344",
+      "direction": "RX",
+      "kind": "response",
+      "id": 6,
+      "destination_cid": "0x0043",
+      "source_cid": "0x0042",
+      "result": 0,
+      "status": 0
+    }
+  ],
+  "user_report": "During the controlled reconnect the app closed and Switch disconnected; after restarting Joy-Con Droid the user reports normal operation.",
+  "test_intervention": "The controlled reconnect test intentionally stopped Joy-Con Droid with am force-stop at approximately 08:17:45 on the capture clock.",
+  "captured_app_log_crash_marker_lines": [],
+  "limits": [
+    "No app crash diagnosis: captured app log has no matched fatal/crash marker; absence of a marker is not proof no crash occurred.",
+    "Duration covers observed capture only, not unlimited stability.",
+    "No new device actions were performed for this analysis.",
+    "No game-level amiibo success inferred.",
+    "Addresses, keys and HID payloads omitted."
+  ],
+  "source_note": "Private capture retained locally; no addresses, pairing keys or HID payloads included.",
+  "clock_note": "Absolute timestamps retain the capture clock as recorded; its synchronization with the host clock and its timezone have not been verified. Conclusions use frame order and measured durations only. Do not infer a cross-device timeline or timezone conversion from clock differences."
+}

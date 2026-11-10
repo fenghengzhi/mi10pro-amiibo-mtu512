@@ -1,0 +1,154 @@
+{
+  "status": "FIRST_SESSION_PASS_WITH_BOUNDED_OBSERVATION",
+  "source_size": 632673,
+  "sha256": "fd21a5224cb5f1bc16abb5e1b8e9d9fe1f92715ea55eb1bc55685fc904f6c835",
+  "hci_records": 6891,
+  "truncated_records": 0,
+  "dropped_fields": [
+    0
+  ],
+  "trailing_bytes": 0,
+  "switch_connection_count": 1,
+  "spontaneous_disconnect_events": [],
+  "controlled_shutdown_events": [
+    {
+      "frame": 6799,
+      "capture_time": "2026-11-10T08:17:46.044",
+      "status": 0,
+      "reason": "0x16",
+      "controlled_shutdown": true
+    }
+  ],
+  "disconnect_commands": [
+    {
+      "frame": 6793,
+      "capture_time": "2026-11-10T08:17:45.951",
+      "handle": 1,
+      "reason": "0x13"
+    }
+  ],
+  "write_cod": [
+    {
+      "frame": 67,
+      "class": "0x002508"
+    },
+    {
+      "frame": 6812,
+      "class": "0x002508"
+    }
+  ],
+  "report_counts": {
+    "TX_report_0x3f": 2,
+    "RX_report_0x01": 24,
+    "TX_report_0x21": 24,
+    "TX_report_0x30": 2492,
+    "RX_report_0x10": 280,
+    "TX_report_0x31": 24,
+    "RX_report_0x11": 24
+  },
+  "report_0x30": {
+    "first_frame": 1162,
+    "last_frame": 6774,
+    "first_capture_time": "2026-11-10T08:14:58.920",
+    "last_capture_time": "2026-11-10T08:17:45.834",
+    "observed_span_seconds": 166.914,
+    "median_interval_ms": 66.328,
+    "maximum_interval_ms": 1658.396
+  },
+  "connection_to_last_report_seconds": 172.705,
+  "subcommand_requests": 24,
+  "subcommand_replies": 24,
+  "subcommand_sequence_matches": true,
+  "hid_connection_signaling": [
+    {
+      "frame": 1017,
+      "capture_time": "2026-11-10T08:14:56.772",
+      "dir": "RX",
+      "code": "request",
+      "id": 2,
+      "psm": "0x0011",
+      "source_cid": "0x0042"
+    },
+    {
+      "frame": 1018,
+      "capture_time": "2026-11-10T08:14:56.772",
+      "dir": "TX",
+      "code": "response",
+      "id": 2,
+      "dest_cid": "0x0040",
+      "source_cid": "0x0042",
+      "result": 1,
+      "status": 0
+    },
+    {
+      "frame": 1019,
+      "capture_time": "2026-11-10T08:14:56.774",
+      "dir": "RX",
+      "code": "request",
+      "id": 3,
+      "psm": "0x0013",
+      "source_cid": "0x0043"
+    },
+    {
+      "frame": 1020,
+      "capture_time": "2026-11-10T08:14:56.775",
+      "dir": "TX",
+      "code": "response",
+      "id": 3,
+      "dest_cid": "0x0041",
+      "source_cid": "0x0043",
+      "result": 1,
+      "status": 0
+    },
+    {
+      "frame": 1054,
+      "capture_time": "2026-11-10T08:14:56.881",
+      "dir": "TX",
+      "code": "response",
+      "id": 2,
+      "dest_cid": "0x0040",
+      "source_cid": "0x0042",
+      "result": 0,
+      "status": 0
+    },
+    {
+      "frame": 1056,
+      "capture_time": "2026-11-10T08:14:56.882",
+      "dir": "TX",
+      "code": "response",
+      "id": 3,
+      "dest_cid": "0x0041",
+      "source_cid": "0x0043",
+      "result": 0,
+      "status": 0
+    }
+  ],
+  "key_storage_log": [
+    {
+      "line": 14012,
+      "text": "11-10 08:14:56.724  5500  5889 D bt_btif : btif_dm_auth_cmpl_evt: Storing link key. key_type=0x4, bond_type=1"
+    }
+  ],
+  "bonded_log": [
+    {
+      "line": 14804,
+      "text": "11-10 08:14:56.896  5500  5898 I BluetoothBondStateMachine: Bond State Change Intent:[MAC] BOND_BONDING => BOND_BONDED"
+    }
+  ],
+  "limits": [
+    "The controlled JCD stop/Bluetooth disable occurred around 08:17:46 on the capture clock; the later local-host 0x16 disconnect is excluded as controlled shutdown.",
+    "No reconnect test or amiibo result inferred from this capture.",
+    "Addresses, keys and HID payloads omitted."
+  ],
+  "long_report_observation": {
+    "report_0x31_count": 24,
+    "l2cap_payload_length_counts": {
+      "363": 24
+    },
+    "first_frame": 5985,
+    "last_frame": 6067,
+    "interpretation": "Long NFC/IR input reports observed in HCI; does not establish successful amiibo use in a game."
+  },
+  "source_note": "Private HCI capture retained locally; raw Bluetooth addresses and pairing keys are not included.",
+  "clock_note": "Absolute timestamps retain the capture clock as recorded; its synchronization with the host clock and its timezone have not been verified. Conclusions use frame order and measured durations only. Do not infer a cross-device timeline or timezone conversion from clock differences."
+}

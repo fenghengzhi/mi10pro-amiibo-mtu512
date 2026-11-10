@@ -1,0 +1,1399 @@
+{
+  "status": "PASS",
+  "case_count": 186,
+  "stock_sha256": "2c44ebea6313ca5d9b8c21a1e12816af15056fd15e2b104b5ba182e247bdc039",
+  "patched_sha256": "d537a6ffcac736537a9a3defe2178dc1cd8d29bd588ff1a71e3fe648f4d93bbe",
+  "cases": [
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 0,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 1,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 2,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 3,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 4,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 0,
+      "local_auth": 5,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 0,
+      "bond_type": 2,
+      "key4_stored": false
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 1,
+      "bond_type": 2,
+      "key4_stored": false
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 0,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 0,
+      "bond_type": 2,
+      "key4_stored": false
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 1,
+      "bond_type": 2,
+      "key4_stored": false
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 1,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 2,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 3,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 4,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 0,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 1,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 2,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 3,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 4,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "patched",
+      "just_works": 1,
+      "local_auth": 5,
+      "remote_auth": 5,
+      "bond_type": 1,
+      "key4_stored": true
+    },
+    {
+      "variant": "stock",
+      "case": "cod_exemption_or_lookup_failure",
+      "cod": 1408,
+      "lookup_ok": true
+    },
+    {
+      "variant": "stock",
+      "case": "cod_exemption_or_lookup_failure",
+      "cod": 525696,
+      "lookup_ok": true
+    },
+    {
+      "variant": "stock",
+      "case": "cod_exemption_or_lookup_failure",
+      "cod": 0,
+      "lookup_ok": false
+    },
+    {
+      "variant": "stock",
+      "case": "already_bonding_normal_confirmation"
+    },
+    {
+      "variant": "stock",
+      "case": "absent_device_record",
+      "state": "no-list"
+    },
+    {
+      "variant": "stock",
+      "case": "absent_device_record",
+      "state": "no-node"
+    },
+    {
+      "variant": "stock",
+      "case": "absent_device_record",
+      "state": "null-record"
+    },
+    {
+      "variant": "stock",
+      "case": "direct_setter",
+      "bond_type": 0
+    },
+    {
+      "variant": "stock",
+      "case": "direct_setter",
+      "bond_type": 1
+    },
+    {
+      "variant": "stock",
+      "case": "direct_setter",
+      "bond_type": 2
+    },
+    {
+      "variant": "stock",
+      "case": "key8_gate",
+      "bond_type": 0
+    },
+    {
+      "variant": "stock",
+      "case": "key8_gate",
+      "bond_type": 1
+    },
+    {
+      "variant": "stock",
+      "case": "key8_gate",
+      "bond_type": 2
+    },
+    {
+      "variant": "stock",
+      "case": "user_security_decision",
+      "transport_le": 0,
+      "secure_connections": 0,
+      "accept": 0
+    },
+    {
+      "variant": "stock",
+      "case": "user_security_decision",
+      "transport_le": 0,
+      "secure_connections": 0,
+      "accept": 1
+    },
+    {
+      "variant": "stock",
+      "case": "user_security_decision",
+      "transport_le": 1,
+      "secure_connections": 1,
+      "accept": 0
+    },
+    {
+      "variant": "stock",
+      "case": "user_security_decision",
+      "transport_le": 1,
+      "secure_connections": 1,
+      "accept": 1
+    },
+    {
+      "variant": "stock",
+      "case": "user_security_decision",
+      "transport_le": 1,
+      "secure_connections": 0,
+      "accept": 0
+    },
+    {
+      "variant": "stock",
+      "case": "user_security_decision",
+      "transport_le": 1,
+      "secure_connections": 0,
+      "accept": 1
+    },
+    {
+      "variant": "stock",
+      "case": "unsupported_reply_variant",
+      "accept": 0
+    },
+    {
+      "variant": "stock",
+      "case": "unsupported_reply_variant",
+      "accept": 1
+    },
+    {
+      "variant": "patched",
+      "case": "cod_exemption_or_lookup_failure",
+      "cod": 1408,
+      "lookup_ok": true
+    },
+    {
+      "variant": "patched",
+      "case": "cod_exemption_or_lookup_failure",
+      "cod": 525696,
+      "lookup_ok": true
+    },
+    {
+      "variant": "patched",
+      "case": "cod_exemption_or_lookup_failure",
+      "cod": 0,
+      "lookup_ok": false
+    },
+    {
+      "variant": "patched",
+      "case": "already_bonding_normal_confirmation"
+    },
+    {
+      "variant": "patched",
+      "case": "absent_device_record",
+      "state": "no-list"
+    },
+    {
+      "variant": "patched",
+      "case": "absent_device_record",
+      "state": "no-node"
+    },
+    {
+      "variant": "patched",
+      "case": "absent_device_record",
+      "state": "null-record"
+    },
+    {
+      "variant": "patched",
+      "case": "direct_setter",
+      "bond_type": 0
+    },
+    {
+      "variant": "patched",
+      "case": "direct_setter",
+      "bond_type": 1
+    },
+    {
+      "variant": "patched",
+      "case": "direct_setter",
+      "bond_type": 2
+    },
+    {
+      "variant": "patched",
+      "case": "key8_gate",
+      "bond_type": 0
+    },
+    {
+      "variant": "patched",
+      "case": "key8_gate",
+      "bond_type": 1
+    },
+    {
+      "variant": "patched",
+      "case": "key8_gate",
+      "bond_type": 2
+    },
+    {
+      "variant": "patched",
+      "case": "user_security_decision",
+      "transport_le": 0,
+      "secure_connections": 0,
+      "accept": 0
+    },
+    {
+      "variant": "patched",
+      "case": "user_security_decision",
+      "transport_le": 0,
+      "secure_connections": 0,
+      "accept": 1
+    },
+    {
+      "variant": "patched",
+      "case": "user_security_decision",
+      "transport_le": 1,
+      "secure_connections": 1,
+      "accept": 0
+    },
+    {
+      "variant": "patched",
+      "case": "user_security_decision",
+      "transport_le": 1,
+      "secure_connections": 1,
+      "accept": 1
+    },
+    {
+      "variant": "patched",
+      "case": "user_security_decision",
+      "transport_le": 1,
+      "secure_connections": 0,
+      "accept": 0
+    },
+    {
+      "variant": "patched",
+      "case": "user_security_decision",
+      "transport_le": 1,
+      "secure_connections": 0,
+      "accept": 1
+    },
+    {
+      "variant": "patched",
+      "case": "unsupported_reply_variant",
+      "accept": 0
+    },
+    {
+      "variant": "patched",
+      "case": "unsupported_reply_variant",
+      "accept": 1
+    }
+  ],
+  "scope": "Native SSP classification + actual BTM setter + key persistence gate; not Android/physical Bluetooth testing"
+}
